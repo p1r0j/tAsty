@@ -41,6 +41,7 @@ tLi_view_entries() {
 
 # Link help info.
 tLi_help() {
+  echo "$fEMPTY"
   echo "$fNEUTRAL ${sBGREEN}tLink${sRESET} is used to create rsync aliases,"
   echo "$fBODY  effectively allowing you to sync two targets"
   echo "$fBODY  both ways with a single command."
@@ -64,8 +65,11 @@ tLi_help() {
 tLi() {
   if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     tLi_help
-  elif [ "$1" = "--view" ] || [ "$1" = "-v" ]; then
+  elif [ "$1" = "--view" ] || [ "$1" = "-v" ] || [ -z "$1" ]; then
     tLi_view_entries
+  elif [ -z "$2" ]; then
+    echo "$fEMPTY"
+    echo "$fERROR Invalid argument."
   else
     echo "$fEMPTY"
     echo "$fWARNG ${sBGREEN}tLink${sRESET} will not validate either target for you."
