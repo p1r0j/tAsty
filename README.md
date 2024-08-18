@@ -18,7 +18,7 @@
 
     * ***tFile***. A collection of command line file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. Similarly, **tRename** is a bulk rename tool. **tFile** also includes essential tools such as **tWrite**, **tLock**, **tSave**, and much more.
 
-*   ***tTrash***. Bring trash can functionality to your **bash** shell. **tTrash** works just like your desktop's trash can, with the ability to shred or restore its contents with a single command.
+*   ***tRash***. Bring trash can functionality to your **bash** shell. **tRash** works just like your desktop's trash can, with the ability to shred or restore its contents with a single command.
 
 *   ***tPocket***. **tPocket** is a convenient place to store commonly used files/directories. You can copy targets into your **tPocket** for later use, and then paste its contents into a targeted destination. **tPocket** can also be saved, loaded, or its contents shredded with a single command.
 
