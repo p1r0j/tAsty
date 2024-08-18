@@ -43,7 +43,8 @@ tN_help() {
   echo "$fNEUTRAL ${sBBLUE}tNav${sRESET} is a collection of navigational tools,"
   echo "$fBODY  consisting of the following:"
   echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tN [target]${sRESET} for navigating to a target directory"
+  echo "$fUSAGE ${sHL}tN${sRESET} for navigating to your home directory,"
+  echo "$fBODY  or ${sHL}tN [target]${sRESET} for navigating to a target directory"
   echo "$fBODY  (the previous working directory will be saved for use with ${sBBLUE}tB${sRESET})."
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tU${sRESET} for moving up a single directory,"
@@ -51,6 +52,12 @@ tN_help() {
   echo "$fBODY  (again, previous working directory saved for use with ${sBBLUE}tB${sRESET})."
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tB${sRESET} for moving back to the previous working directory."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tFs${sRESET} to quickly source your ${sBBLUE}bashrc${sRESET} file."
+  echo "$fEMPTY"
+  echo "$fTIP Use ${sHL}tFs${sRESET} after making changes to your ${sBBLUE}tBook${sRESET}"
+  echo "$fBODY  for your new aliases to become accessible"
+  echo "$fBODY  without relaunching your shell."
 }
 
 
@@ -93,6 +100,8 @@ tFs() {
 tN() {
   if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     tN_help
+  elif [ -z "$1" ]; then
+    tN "$HOME"
   elif [ ! -d "$1" ]; then
     tA_invalid_argument
   else
