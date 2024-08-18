@@ -25,27 +25,25 @@ mP="$dP/tPocket.sh"
 mCL="$dCL/tClip.sh"
 mNO="$dNO/tNote.sh"
 # Styles.
-sBGREEN=$(tput bold; tput setaf 2)
-sGREEN=$(tput setaf 2)
-sBYELLOW=$(tput bold; tput setaf 3)
-sYELLOW=$(tput setaf 3)
-sBBLUE=$(tput bold; tput setaf 4)
-sBLUE=$(tput setaf 4)
-sBPURP=$(tput bold; tput setaf 5)
-sPURP=$(tput setaf 5)
-sBCYAN=$(tput bold; tput setaf 6)
-sCYAN=$(tput setaf 6)
-sBGREY=$(tput bold; tput setaf 7)
-sGREY=$(tput setaf 7)
 sBBLACK=$(tput bold; tput setaf 8)
 sBLACK=$(tput setaf 8)
 sBRED=$(tput bold; tput setaf 9)
 sRED=$(tput setaf 9)
-sHL=$(tput bold; tput setaf 0; tput setab 6)
+sBGREEN=$(tput bold; tput setaf 10)
+sGREEN=$(tput setaf 10)
+sBYELLOW=$(tput bold; tput setaf 11)
+sYELLOW=$(tput setaf 11)
+sBBLUE=$(tput bold; tput setaf 12)
+sBLUE=$(tput setaf 12)
+sBPINK=$(tput bold; tput setaf 13)
+sPINK=$(tput setaf 13)
+sBCYAN=$(tput bold; tput setaf 14)
+sCYAN=$(tput setaf 14)
+sHL=$(tput bold; tput setaf 8; tput setab 14)
 sBOLD=$(tput bold)
 sRESET=$(tput sgr0)
 # Faces.
-fINPUT="(${sBPURP}~[ ]~${sRESET})"
+fINPUT="(${sBPINK}~[ ]~${sRESET})"
 fNEUTRAL="[${sBCYAN}~'_'~${sRESET}]"
 fTALK="[${sBCYAN}~'o'~${sRESET}]"
 fHAPPY="[${sBCYAN}~'w'~${sRESET}]"
@@ -61,7 +59,7 @@ fWARNG="[${sBYELLOW}WARNG${sRESET}]"
 fERROR="[${sBRED}ERROR${sRESET}]"
 fSERROR=" |${sRED}~!~${sRESET}|"
 fBODY=" |${sCYAN}|  ${sRESET}|"
-fBODY1=" |${sPURP}|  ${sRESET}|"
+fBODY1=" |${sPINK}|  ${sRESET}|"
 fBODY2=" |${sGREEN} | ${sRESET}|"
 fBODY3=" |${sYELLOW}  |${sRESET}|"
 fEMPTY=" |   |"
@@ -129,7 +127,7 @@ tA_too_few_arguments() {
 # Donate function.
 tA_donate() {
   echo "$fEMPTY"
-  echo "$fHAPPY Thank you so much! ${sBPURP}<3${sRESET}"
+  echo "$fHAPPY Thank you so much! ${sBPINK}<3${sRESET}"
   xdg-open "https://buymeacoffee.com/piroj"
 }
 
@@ -160,7 +158,7 @@ tPrompt() {
   for ((i = 1; i <= pWidth; i++)); do
       pDivider="${pDivider}-"
   done
-  tPrompt="(\[${sBPURP}\]~[ ]~\[${sRESET}\]) "
+  tPrompt="(\[${sBPINK}\]~[ ]~\[${sRESET}\]) "
   echo "$pDivider"
   echo "$fNEUTRAL ${sBCYAN}$pName${sRESET}@${sBGREEN}$(hostname)${sRESET}:${sHL}$pDir${sRESET}"
   echo " |${fTITLE}   ${sRESET}|  "

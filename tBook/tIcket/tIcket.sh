@@ -20,7 +20,7 @@ done
 
 # Entry not found error.
 tI_entry_not_found() {
-  echo "$fSERROR  ${sHL}$2${sRESET} ${sBPURP}ticket${sRESET} not found."
+  echo "$fSERROR  ${sHL}$2${sRESET} ${sBPINK}ticket${sRESET} not found."
 }
 
 
@@ -57,7 +57,7 @@ tI_remove_entry() {
     echo "$fERROR ${sHL}$2${sRESET} is not a valid target."
   else
     echo "$fEMPTY"
-    echo "$fOK Removing ${sBPURP}$2${sRESET}..."
+    echo "$fOK Removing ${sBPINK}$2${sRESET}..."
     rm "$edI/$2"
   fi
 }
@@ -72,7 +72,7 @@ tI_view_entry() {
 # View ticket entries.
 tI_view_entries() {
   for file in "$edI"/*; do
-    echo "$fBODY1  ${sBPURP}$(basename "$file")${sRESET}"
+    echo "$fBODY1  ${sBPINK}$(basename "$file")${sRESET}"
   done
 }
 
@@ -80,7 +80,7 @@ tI_view_entries() {
 # Ticket help info.
 tI_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL ${sBPURP}tIcket${sRESET} is used to add, remove, and view ${sBBLUE}cd${sRESET} aliases,"
+  echo "$fNEUTRAL ${sBPINK}tIcket${sRESET} is used to add, remove, and view ${sBBLUE}cd${sRESET} aliases,"
   echo "$fBODY  which allow you to bookmark frequented local directories."
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tI -a [target]${sRESET} to add a new alias,"

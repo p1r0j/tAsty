@@ -42,7 +42,7 @@ tBo_validate_name() {
   if [[ ${#1} -ge 3 && "$1" =~ ^[a-zA-Z0-9_]+$ ]]; then
     entryName="t$1"
     if [ -f "$edI/$entryName" ]; then
-      echo "$fERROR A ${sBPURP}ticket${sRESET} with the name"
+      echo "$fERROR A ${sBPINK}ticket${sRESET} with the name"
       echo "$fBODY  ${sHL}$entryName${sRESET} already exists."
       return 1
     elif [ -f "$edLI/$entryName" ]; then
@@ -69,7 +69,7 @@ tBo_validate_name() {
 tBo_help() {
   echo "$fEMPTY"
   echo "$fNEUTRAL ${sBBLUE}tBook${sRESET} is where your aliases created with"
-  echo "$fBODY  ${sBPURP}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}"
+  echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}"
   echo "$fBODY  are stored."
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tBo${sRESET} to display your current aliases,"
