@@ -65,10 +65,10 @@ fBODY1=" |${sPURP}|  ${sRESET}|"
 fBODY2=" |${sGREEN} | ${sRESET}|"
 fBODY3=" |${sYELLOW}  |${sRESET}|"
 fEMPTY=" |   |"
-# Enable tPrompt.
-PROMPT_COMMAND="tPrompt"
 # Aliases.
 alias tAsty="tA"
+# Enable tPrompt.
+PROMPT_COMMAND="tPrompt"
 
 
 # Source available modules.
