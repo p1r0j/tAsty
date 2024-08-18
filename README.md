@@ -1,5 +1,7 @@
 # tAsty
 
+`[~'_'~]`
+
 *The Alias Supplement ThingY*
 
 **tAsty** is an extension for your `~/.bashrc` file aimed at simplifying commonly performed tasks within the **bash** shell. With a focus on productivity and file management, some of **tAsty**'s key features include:
