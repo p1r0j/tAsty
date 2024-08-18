@@ -53,7 +53,7 @@ tN_help() {
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tB${sRESET} for moving back to the previous working directory."
   echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tFs${sRESET} to quickly source your ${sBBLUE}bashrc${sRESET} file."
+  echo "$fUSAGE ${sHL}tFs${sRESET} to quickly source your ${sHL}~/.bashrc${sRESET} file."
   echo "$fEMPTY"
   echo "$fTIP Use ${sHL}tFs${sRESET} after making changes to your ${sBBLUE}tBook${sRESET}"
   echo "$fBODY  for your new aliases to become accessible"
