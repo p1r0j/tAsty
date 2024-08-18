@@ -22,7 +22,7 @@
 
 *   ***tPocket***. **tPocket** is a convenient place to store commonly used files/directories. You can copy targets into your **tPocket** for later use, and then paste its contents into a targeted destination. **tPocket** can also be saved, loaded, or its contents shredded with a single command.
 
-*   ***tClip***. **tAsty** also includes its own clipboard. Use **tClip** to quickly copy and append the contents of files viewed with **tView** (see ***tNav***). Additionally, clear the contents, paste to **tNote** (see ***tNote*** next), or open up your **tClip** for editing with a single command.
+*   ***tClip***. **tAsty** also includes its own clipboard. Use **tClip** to quickly copy and append the contents of files viewed with **tView** (see ***tNav*** above). Additionally, clear the contents, paste to **tNote** (see ***tNote*** next), or open up your **tClip** for editing with a single command.
 
 *   ***tNote***. A simple notepad for convenient note-taking in **bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, found in your `~/.bashrc` file). Can also be saved, loaded, or cleared with a single command.
 
