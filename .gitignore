@@ -1,4 +1,4 @@
-tBook/tIcket/Tickets/*
-tBook/tLink/Links/*
-tBook/tCraft/Crafts/*
+tBook/tIcket/Tickets/t*
+tBook/tLink/Links/t*
+tBook/tCraft/Crafts/t*
 tRaveller/tNav/tBack/cache
