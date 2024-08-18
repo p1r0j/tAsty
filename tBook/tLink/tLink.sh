@@ -18,6 +18,12 @@ for file in "$edLI"/t*; do
 done
 
 
+# Entry not found error.
+tLi_entry_not_found() {
+  echo "$fSERROR  ${sHL}$2${sRESET} ${sBGREEN}link${sRESET} not found."
+}
+
+
 # Add link entry.
 tLi_add_entry() {
   if [ -z "$3" ]; then
@@ -56,6 +62,12 @@ tLi_remove_entry() {
 }
 
 
+# View ticket entry.
+tLi_view_entry() {
+  echo "$fBODY2  ${sHL}$(cat "$edLI/$2")${sRESET}"
+}
+
+
 # View link entries.
 tLi_view_entries() {
   for file in "$edLI"/*; do
@@ -86,19 +98,29 @@ tLi_help() {
   echo "$fEXMPL ${sHL}tLi -r tWorkSync${sRESET}"
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tLi -v${sRESET} to view a list of existing aliases."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tLi -v [target]${sRESET} to view the contents of a target alias."
 }
 
 
 # Callable function.
 tLi() {
-  if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
+  if [ "$1" = "--view" ] || [ "$1" = "-v" ] || [ -z "$1" ]; then
+    if [ -z "$1" ] || [ -z "$2" ]; then
+      tLi_view_entries
+    elif [ -f "$edLI/$2" ]; then
+      tLi_view_entry "$@"
+    else
+      tLi_entry_not_found "$@"
+    fi
+  elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     tLi_help
-  elif [ "$1" = "--view" ] || [ "$1" = "-v" ] || [ -z "$1" ]; then
-    tLi_view_entries
   elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
     tLi_remove_entry "$@"
   elif [ "$1" = "--add" ] || [ "$1" = "-a" ]; then
     tLi_add_entry "$@"
+  else
+    tA_invalid_argument
   fi
 }
 

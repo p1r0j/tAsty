@@ -30,9 +30,9 @@ fi
 
 # View all contents.
 tBo_view() {
-  tI "-v"
-  tLi "-v"
-  tCr "-v"
+  tI "$@"
+  tLi "$@"
+  tCr "$@"
 }
 
 
@@ -72,7 +72,9 @@ tBo_help() {
   echo "$fBODY  ${sBPURP}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}"
   echo "$fBODY  are stored."
   echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tBo${sRESET} to display your current aliases."
+  echo "$fUSAGE ${sHL}tBo${sRESET} to display your current aliases,"
+  echo "$fBODY  or ${sHL}tBo -v [target]${sRESET} to view contents of a specific entry,"
+  echo "$fBODY  where ${sBBLUE}target${sRESET} is the name of a ${sBBLUE}tBook${sRESET} entry."
 }
 
 
@@ -81,9 +83,9 @@ tBo() {
   if [ "$1" == "--help" ] || [ "$1" = "-h" ]; then
     tBo_help
   elif [ "$1" = "--view" ] || [ "$1" = "-v" ]; then
-    tBo_view
+    tBo_view "$@"
   elif [ -z "$1" ]; then
-    tBo_view
+    tBo_view "$@"
   else
     tA_invalid_argument
   fi

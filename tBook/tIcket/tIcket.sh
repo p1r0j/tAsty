@@ -18,6 +18,12 @@ for file in "$edI"/t*; do
 done
 
 
+# Entry not found error.
+tI_entry_not_found() {
+  echo "$fSERROR  ${sHL}$2${sRESET} ${sBPURP}ticket${sRESET} not found."
+}
+
+
 # Add ticket entry.
 tI_add_entry() {
   if [ -z "$2" ]; then
@@ -57,6 +63,12 @@ tI_remove_entry() {
 }
 
 
+# View ticket entry.
+tI_view_entry() {
+  echo "$fBODY1  ${sHL}$(cat "$edI/$2")${sRESET}"
+}
+
+
 # View ticket entries.
 tI_view_entries() {
   for file in "$edI"/*; do
@@ -82,13 +94,21 @@ tI_help() {
   echo "$fEXMPL ${sHL}tI -r tWorkNotes${sRESET}"
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tI -v${sRESET} to view a list of existing aliases."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tI -v [target]${sRESET} to view the contents of a target alias."
 }
 
 
 # Callable function.
 tI() {
   if [ "$1" = "--view" ] || [ "$1" = "-v" ] || [ -z "$1" ]; then
-    tI_view_entries
+    if [ -z "$1" ] || [ -z "$2" ]; then
+      tI_view_entries
+    elif [ -f "$edI/$2" ]; then
+      tI_view_entry "$@"
+    else
+      tI_entry_not_found "$@"
+    fi
   elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     tI_help
   elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then

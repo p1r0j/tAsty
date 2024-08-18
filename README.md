@@ -2,7 +2,7 @@
 
 *The Alias Supplement ThingY*
 
-**tAsty** is an extension to your `~/.bashrc` file which creates an intuitive and cohesive **bashing** experience. With a focus on productivity and file management, some of **tAsty**'s key features include:
+**tAsty** is an extension for your `~/.bashrc` file which creates an intuitive and cohesive **bashing** experience. With a focus on productivity and file management, some of **tAsty**'s key features include:
 
 *   ***tBook***. A place to store custom **bash** aliases. Simply run the command `tBo` to view all your current **tickets** (**cd** aliases), **links** (**unison** aliases), and **crafts** (custom aliases).
 
@@ -10,9 +10,9 @@
 
 *   ***tPocket***. **tPocket** is a convenient place to store commonly used files/directories. You can copy targets into your **tPocket** for later use, and then paste its contents into a targeted destination. **tPocket** can also be saved, loaded, or its contents shredded with a single command.
 
-*   ***tClip***. **tAsty** also includes its own clipboard. Use **tClip** to quickly copy and append the contents of files viewed with **tView** (see ***tNav*** next). Additionally, clear the contents or open up your **tClip** for editing with a single command.
+*   ***tClip***. **tAsty** also includes its own clipboard. Use **tClip** to quickly copy and append the contents of files viewed with **tView** (see ***tNav***). Additionally, clear the contents, paste to **tNote** (see ***tNote*** next), or open up your **tClip** for editing with a single command.
 
-*   ***tNote***. A simple notepad for convenient note-taking in **bash**. Can also be saved, loaded, or cleared with a single command.
+*   ***tNote***. A simple notepad for convenient note-taking in **bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, found in your `~/.bashrc` file). Can also be saved, loaded, or cleared with a single command.
 
 *   ***tNav***. A collection of navigational tools that make file system navigation feel more natural. **tNav** includes tools such as **tView** for viewing the contents of files, directories, and compressed files, **tBack** for quickly navigating to your previous working directory, **tUp** for moving up a specified number of directories, and more.
 
@@ -22,7 +22,7 @@
 
 1.  In your **bash** shell, navigate to the directory you'd like to store **tAsty** in.
 
-    *   Be sure to choose a *permanent* location, as moving the following download will break **tAsty**.
+    *   Be sure to choose a *permanent* location, as moving the following download after installation will break **tAsty**.
 
 1.  `git clone https://github.com/p1r0j/tAsty.git`
 
