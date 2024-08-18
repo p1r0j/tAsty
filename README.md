@@ -12,7 +12,7 @@
 
     *   ***tCraft***. Used to create, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
 
-*   ***tRaveller***. A combination of navigation and file management tools:
+*   ***tRaveller***. A combination of navigation and file management tools. The **tRaveller** module consists of the following two components:
 
     *   ***tNav***. A collection of shell navigation tools. **tNav** includes tools such as **tView** for viewing the contents of files, directories, and compressed files, **tBack** for quickly navigating to your previous working directory, **tUp** for moving up a specified number of directories, and more.
 
