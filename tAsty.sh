@@ -112,6 +112,13 @@ tA_invalid_argument() {
 }
 
 
+# Invalid argument error.
+tA_too_few_arguments() {
+  echo "$fEMPTY"
+  echo "$fERROR Too few arguments."
+}
+
+
 # Custom prompt.
 tPrompt() {
   pName=$(whoami)

@@ -20,6 +20,14 @@ done
 
 # Add ticket entry.
 tI_add_entry() {
+  if [ -z "$2" ]; then
+    tA_too_few_arguments
+    return
+  elif [ ! -d "$2" ]; then
+    echo "$fEMPTY"
+    echo "$fERROR ${sHL}$2${sRESET} is not a valid target."
+    return
+  fi
   if [ ! -d "$edI" ]; then
     mkdir "$edI"
   fi
@@ -37,8 +45,7 @@ tI_add_entry() {
 # Remove ticket entry.
 tI_remove_entry() {
   if [ -z "$2" ]; then
-    echo "$fEMPTY"
-    echo "$fERROR ${sBPURP}tIcket ${sBBLUE}remove entry${sRESET} requires a target."
+    tA_too_few_arguments
   elif [ ! -f "$edI/$2" ]; then
     echo "$fEMPTY"
     echo "$fERROR ${sHL}$2${sRESET} is not a valid target."
@@ -86,8 +93,6 @@ tI() {
     tI_help
   elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
     tI_remove_entry "$@"
-  elif [ -z "$3" ]; then
-    tA_invalid_argument
   elif [ "$1" = "--add" ] || [ "$1" = "-a" ]; then
     tI_add_entry "$@"
   else

@@ -11,6 +11,7 @@ cB="$dB/cache"
 # Aliases.
 alias tUp="tU"
 alias tBack="tB"
+alias tFresh="tFs"
 alias tNav="tN"
 
 
@@ -77,6 +78,14 @@ tB() {
   else
     tB_navigate
   fi
+}
+
+
+# tFresh callable function.
+tFs() {
+  echo "$fEMPTY"
+  echo "$fNEUTRAL ${sGREEN}Feelin' fresh${sRESET}."
+  source ~/.bashrc
 }
 
 

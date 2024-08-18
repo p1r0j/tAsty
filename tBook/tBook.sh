@@ -32,7 +32,7 @@ fi
 tBo_view() {
   tI "-v"
   tLi "-v"
-  # tCr "-v"
+  tCr "-v"
 }
 
 
