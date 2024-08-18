@@ -4,7 +4,13 @@
 
 **tAsty** is an extension for your `~/.bashrc` file which creates an intuitive and cohesive **bashing** experience. With a focus on productivity and file management, some of **tAsty**'s key features include:
 
-*   ***tBook***. A place to store custom **bash** aliases. Simply run the command `tBo` to view all your current **tickets** (**cd** aliases), **links** (**unison** aliases), and **crafts** (custom aliases).
+*   ***tBook***. A place to store custom **bash** aliases. Simply run the command `tBo` to view all your current aliases. **tBook** consists of three distinct components:
+
+    *   ***tIcket***. Used to create, view, and remove **cd** aliases. Useful for bookmarking frequented directories.
+
+    *   ***tLink***. Used to create, view, and remove **unison** aliases. Useful for synching local and remote directories.
+
+    *   ***tCraft***. Used to create, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
 
 *   ***tRaveller***. A combination of navigation and file management tools:
 
