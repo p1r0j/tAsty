@@ -5,7 +5,7 @@
 # tAsty.
 
 # Joke.
-poked="False"
+poked=0
 # Locator.
 lDir="$( cd -- "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 ; pwd -P )"
 # Main script.
@@ -46,6 +46,8 @@ sRESET=$(tput sgr0)
 fINPUT="(${sBPURP}~[ ]~${sRESET})"
 fNEUTRAL="[${sBCYAN}~'_'~${sRESET}]"
 fTALK="[${sBCYAN}~'o'~${sRESET}]"
+fSIGH="[${sBCYAN}~-.-~${sRESET}]"
+fMONOCLE="[${sBCYAN}~p_-~${sRESET}]"
 fANGRY="[${sBCYAN}~>-<~${sRESET}]"
 fOUTPUT="[${sBGREEN}~!-!~${sRESET}]"
 fOK="[${sBGREEN}~OK!~${sRESET}]"
@@ -129,11 +131,19 @@ tPrompt() {
 
 # Callable function.
 tA() {
-  if [ "$poked" = "True" ]; then
+  if [ "$poked" = 3 ]; then
     echo "$fEMPTY"
     echo "$fANGRY What?!"
-  else
-    poked="True"
+  elif [ "$poked" = 2 ]; then
+    ((poked++))
+    echo "$fEMPTY"
+    echo "$fSIGH You're trying my patience..."
+  elif [ "$poked" = 1 ]; then
+    ((poked++))
+    echo "$fEMPTY"
+    echo "$fMONOCLE ... Yes?"
+  elif [ "$poked" = 0 ]; then
+    ((poked++))
     echo "$fEMPTY"
     echo "$fNEUTRAL Can I help you?"
   fi
