@@ -2,7 +2,7 @@
 
 *The Alias Supplement ThingY*
 
-**tAsty** is an extension for your `~/.bashrc` file which creates an intuitive and cohesive **bashing** experience. With a focus on productivity and file management, some of **tAsty**'s key features include:
+**tAsty** is an extension for your `~/.bashrc` file aimed at simplifying commonly performed tasks within the **bash** shell. With a focus on productivity and file management, some of **tAsty**'s key features include:
 
 *   ***tBook***. A place to store custom **bash** aliases. Simply run the command `tBo` to view all your current aliases. **tBook** consists of three distinct components:
 
