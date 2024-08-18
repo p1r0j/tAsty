@@ -20,6 +20,9 @@ done
 
 # Add link entry.
 tLi_add_entry() {
+  if [ ! -d "$edLI" ]; then
+    mkdir "$edLI"
+  fi
   echo "$fEMPTY"
   echo "$fWARNG ${sBGREEN}tLink${sRESET} will not validate either target for you."
   echo "$fBODY  Type carefully!"
