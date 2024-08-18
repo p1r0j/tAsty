@@ -6,11 +6,11 @@
 
 *   ***tBook***. A place to store custom **bash** aliases. Simply run the command `tBo` to view all your current **tickets** (**cd** aliases), **links** (**unison** aliases), and **crafts** (custom aliases).
 
-*   ***tRaveller***. A combination of navigational and file management tools:
+*   ***tRaveller***. A combination of navigation and file management tools:
 
-    *   ***tNav***. A collection of navigational tools that make file system navigation feel more natural. **tNav** includes tools such as **tView** for viewing the contents of files, directories, and compressed files, **tBack** for quickly navigating to your previous working directory, **tUp** for moving up a specified number of directories, and more.
+    *   ***tNav***. A collection of shell navigation tools. **tNav** includes tools such as **tView** for viewing the contents of files, directories, and compressed files, **tBack** for quickly navigating to your previous working directory, **tUp** for moving up a specified number of directories, and more.
 
-    * ***tFile***. A collection of file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. Similarly, **tRename** is a bulk rename tool. **tFile** also includes essential tools such as **tWrite**, **tLock**, **tSave**, and much more.
+    * ***tFile***. A collection of command line file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. Similarly, **tRename** is a bulk rename tool. **tFile** also includes essential tools such as **tWrite**, **tLock**, **tSave**, and much more.
 
 *   ***tTrash***. Bring trash can functionality to your **bash** shell. **tTrash** works just like your desktop's trash can, with the ability to shred or restore its contents with a single command.
 
