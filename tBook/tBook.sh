@@ -28,6 +28,14 @@ if [ -f "$cCR" ]; then
 fi
 
 
+# View all contents.
+tBo_view() {
+  tI "-v"
+  tLi "-v"
+  # tCr "-v"
+}
+
+
 # Validate entry name.
 tBo_validate_name() {
   echo "$fEMPTY"
@@ -57,13 +65,27 @@ tBo_validate_name() {
 }
 
 
+# Book help info.
+tBo_help() {
+  echo "$fEMPTY"
+  echo "$fNEUTRAL ${sBBLUE}tBook${sRESET} is where your aliases created with"
+  echo "$fBODY  ${sBPURP}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}"
+  echo "$fBODY  are stored."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tBo${sRESET} to display your current aliases."
+}
+
+
 # Callable function.
 tBo() {
-  echo "$fEMPTY"
-  if [ -z "$1" ]; then
-    echo "Coming soon..."
-  elif [ "$1" == "--help" ] || [ "$1" = "-h" ]; then
-    echo "Coming soon..."
+  if [ "$1" == "--help" ] || [ "$1" = "-h" ]; then
+    tBo_help
+  elif [ "$1" = "--view" ] || [ "$1" = "-v" ]; then
+    tBo_view
+  elif [ -z "$1" ]; then
+    tBo_view
+  else
+    tA_invalid_argument
   fi
 }
 

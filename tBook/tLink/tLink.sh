@@ -91,9 +91,8 @@ tLi() {
     tLi_view_entries
   elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
     tLi_remove_entry "$@"
-  elif [ -z "$2" ]; then
-    echo "$fEMPTY"
-    echo "$fERROR Invalid argument."
+  elif [ -z "$3" ]; then
+    tA_invalid_argument
   elif [ "$1" = "--add" ] || [ "$1" = "-a" ]; then
     tLi_add_entry "$@"
   fi

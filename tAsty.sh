@@ -4,6 +4,8 @@
 # for The Alias Supplement ThingY,
 # tAsty.
 
+# Joke.
+poked="False"
 # Locator.
 lDir="$( cd -- "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 ; pwd -P )"
 # Main script.
@@ -44,6 +46,7 @@ sRESET=$(tput sgr0)
 fINPUT="(${sBPURP}~[ ]~${sRESET})"
 fNEUTRAL="[${sBCYAN}~'_'~${sRESET}]"
 fTALK="[${sBCYAN}~'o'~${sRESET}]"
+fANGRY="[${sBCYAN}~>-<~${sRESET}]"
 fOUTPUT="[${sBGREEN}~!-!~${sRESET}]"
 fOK="[${sBGREEN}~OK!~${sRESET}]"
 fUSAGE="[${sBYELLOW}USAGE${sRESET}]"
@@ -58,6 +61,8 @@ fBODY3=" |${sYELLOW}  |${sRESET}|"
 fEMPTY=" |   |"
 # Enable tPrompt.
 PROMPT_COMMAND="tPrompt"
+# Aliases.
+alias tAsty="tA"
 
 
 # Source available modules.
@@ -79,7 +84,7 @@ fi
 # Setup info.
 if [ "$1" = "--setup" ]; then
   echo "$fEMPTY"
-  echo "$fNEUTRAL Welcome, tRaveller."
+  echo "$fNEUTRAL Welcome, ${sBCYAN}tRaveller${sRESET}."
   echo "$fBODY  Setting up tAsty is easy."
   echo "$fEMPTY"
   echo "$fTALK Simply paste the following line"
@@ -98,6 +103,13 @@ if [ "$1" = "--setup" ]; then
 fi
 
 
+# Invalid argument error.
+tA_invalid_argument() {
+  echo "$fEMPTY"
+  echo "$fERROR Invalid argument."
+}
+
+
 # Custom prompt.
 tPrompt() {
   pName=$(whoami)
@@ -112,5 +124,18 @@ tPrompt() {
   echo "$fNEUTRAL ${sBCYAN}$pName${sRESET}@${sBGREEN}$(hostname)${sRESET}:${sHL}$pDir${sRESET}"
   echo " |${fTITLE}   ${sRESET}|  "
   PS1="$tPrompt"
+}
+
+
+# Callable function.
+tA() {
+  if [ "$poked" = "True" ]; then
+    echo "$fEMPTY"
+    echo "$fANGRY What?!"
+  else
+    poked="True"
+    echo "$fEMPTY"
+    echo "$fNEUTRAL Can I help you?"
+  fi
 }
 
