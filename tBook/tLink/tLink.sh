@@ -25,7 +25,7 @@ tLi_add_entry() {
   if tBo_validate_name "$linkName"; then
     linkName="t$linkName"
     touch "$edLI/$linkName"
-    newLink="alias $linkName=\"rsync -varu \"$1\" \"$2\" && rsync -varu \"$2\" \"$1\"\""
+    newLink="alias $linkName=\"unison \"$1\" \"$2\" -auto -batch\""
     echo "$newLink" > "$edLI/$linkName"
   fi
 }
@@ -42,22 +42,18 @@ tLi_view_entries() {
 # Link help info.
 tLi_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL ${sBGREEN}tLink${sRESET} is used to create rsync aliases,"
-  echo "$fBODY  effectively allowing you to sync two targets"
-  echo "$fBODY  both ways with a single command."
+  echo "$fNEUTRAL ${sBGREEN}tLink${sRESET} is used to create ${sBBLUE}unison${sRESET} aliases,"
+  echo "$fBODY  allowing you to sync two targets."
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tLi [target1] [target2]${sRESET}"
   echo "$fBODY  where ${sBBLUE}target1${sRESET} or ${sBBLUE}target2${sRESET}"
-  echo "$fBODY  can be remote (${sHL}hostname:path/to/target/${sRESET})"
+  echo "$fBODY  can be remote (${sHL}ssh://hostname//path/to/target/${sRESET})"
   echo "$fBODY  or local (${sHL}path/to/target/${sRESET})."
-  echo "$fEMPTY"
-  echo "$fWARNG ${sBGREEN}tLink${sRESET} will not delete files from either target."
-  echo "$fBODY  If you want this behavior, use ${sBYELLOW}tCraft${sRESET} instead."
   echo "$fEMPTY"
   echo "$fTIP Only one or the other (${sBBLUE}target1${sRESET} or ${sBBLUE}target2${sRESET})"
   echo "$fBODY  can be remote--you can't link two remote targets."
   echo "$fEMPTY"
-  echo "$fEXMPL ${sHL}tLi workPC:/home/tastyUser/Documents/ ~/Documents/${sRESET}"
+  echo "$fEXMPL ${sHL}tLi ssh://workPC//home/tastyUser/Documents/ ~/Documents/${sRESET}"
 }
 
 
