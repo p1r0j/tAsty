@@ -11,7 +11,7 @@ alias tIcket="tI"
 
 
 # Source all tickets.
-for file in "$edI"/*; do
+for file in "$edI"/t*; do
   if [ -f "$file" ]; then
     source "$file"
   fi

@@ -11,7 +11,7 @@ alias tLink="tLi"
 
 
 # Source all links.
-for file in "$edLI"/*; do
+for file in "$edLI"/t*; do
   if [ -f "$file" ]; then
     source "$file"
   fi

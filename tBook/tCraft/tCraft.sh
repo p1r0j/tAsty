@@ -11,7 +11,7 @@ alias tCraft="tCr"
 
 
 # Source all crafts.
-for file in "$edCR"/*; do
+for file in "$edCR"/t*; do
   if [ -f "$file" ]; then
     source "$file"
   fi
