@@ -44,6 +44,14 @@ tCr_add_entry() {
 }
 
 
+# Shred all entries.
+tCr_shred_entries() {
+  for file in "$edCR"/*; do
+    rm $file
+  done
+}
+
+
 # Remove craft entry.
 tCr_remove_entry() {
   if [ -z "$2" ]; then
@@ -89,6 +97,8 @@ tCr_help() {
   echo "$fUSAGE ${sHL}tCr -v${sRESET} to view a list of existing aliases."
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tCr -v [target]${sRESET} to view the contents of a target alias."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tCr --shred${sRESET} to remove all existing aliases."
 }
 
 
@@ -108,6 +118,8 @@ tCr() {
     tCr_remove_entry "$@"
   elif [ "$1" = "--add" ] || [ "$1" = "-a" ]; then
     tCr_add_entry "$@"
+  elif [ "$1" = "--shred" ]; then
+    tCr_shred_entries
   else
     tA_invalid_argument
   fi

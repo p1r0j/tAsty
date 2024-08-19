@@ -182,11 +182,11 @@ tA() {
     elif [ "$poked" = 2 ]; then
       ((poked++))
       echo "$fEMPTY"
-      echo "$fSIGH You're trying my patience..."
+      echo "$fSIGH Okay, now you're just trying my patience..."
     elif [ "$poked" = 1 ]; then
       ((poked++))
       echo "$fEMPTY"
-      echo "$fMONOCLE ... Yes?"
+      echo "$fMONOCLE ... If you need help, try ${sHL}-h${sRESET}."
     elif [ "$poked" = 0 ]; then
       ((poked++))
       echo "$fEMPTY"

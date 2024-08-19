@@ -28,6 +28,14 @@ if [ -f "$cCR" ]; then
 fi
 
 
+# Shred all entries.
+tBo_shred_entries() {
+  tI "--shred"
+  tLi "--shred"
+  tCr "--shred"
+}
+
+
 # Remove target entry.
 tBo_remove() {
   tI "$@"
@@ -87,6 +95,8 @@ tBo_help() {
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tBo -r [target]${sRESET} to remove a specific entry,"
   echo "$fBODY  where ${sBBLUE}target${sRESET} is again the name of a ${sBBLUE}tBook${sRESET} entry."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tBo --shred${sRESET} to remove all existing entries."
 }
 
 
@@ -102,6 +112,8 @@ tBo() {
     else
       tBo_remove "$@"
     fi
+  elif [ "$1" = "--shred" ]; then
+    tBo_shred_entries
   elif [ -z "$1" ]; then
     tBo_view "$@"
   else

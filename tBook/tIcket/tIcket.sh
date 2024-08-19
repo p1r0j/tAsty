@@ -48,6 +48,14 @@ tI_add_entry() {
 }
 
 
+# Shred all entries.
+tI_shred_entries() {
+  for file in "$edI"/*; do
+    rm $file
+  done
+}
+
+
 # Remove ticket entry.
 tI_remove_entry() {
   if [ -z "$2" ]; then
@@ -94,6 +102,8 @@ tI_help() {
   echo "$fUSAGE ${sHL}tI -v${sRESET} to view a list of existing aliases."
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tI -v [target]${sRESET} to view the contents of a target alias."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tI --shred${sRESET} to remove all existing aliases."
 }
 
 
@@ -113,6 +123,8 @@ tI() {
     tI_remove_entry "$@"
   elif [ "$1" = "--add" ] || [ "$1" = "-a" ]; then
     tI_add_entry "$@"
+  elif [ "$1" = "--shred" ]; then
+    tI_shred_entries
   else
     tA_invalid_argument
   fi

@@ -47,6 +47,14 @@ tLi_add_entry() {
 }
 
 
+# Shred all entries.
+tLi_shred_entries() {
+  for file in "$edLI"/*; do
+    rm $file
+  done
+}
+
+
 # Remove link entry.
 tLi_remove_entry() {
   if [ -z "$2" ]; then
@@ -98,6 +106,8 @@ tLi_help() {
   echo "$fUSAGE ${sHL}tLi -v${sRESET} to view a list of existing aliases."
   echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tLi -v [target]${sRESET} to view the contents of a target alias."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tLi --shred${sRESET} to remove all existing aliases."
 }
 
 
@@ -117,6 +127,8 @@ tLi() {
     tLi_remove_entry "$@"
   elif [ "$1" = "--add" ] || [ "$1" = "-a" ]; then
     tLi_add_entry "$@"
+  elif [ "$1" = "--shred" ]; then
+    tLi_shred_entries
   else
     tA_invalid_argument
   fi
