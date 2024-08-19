@@ -49,11 +49,9 @@ tCr_remove_entry() {
   if [ -z "$2" ]; then
     tA_too_few_arguments
   elif [ ! -f "$edCR/$2" ]; then
-    echo "$fEMPTY"
-    echo "$fERROR ${sHL}$2${sRESET} is not a valid target."
+    echo "$fSERROR  No ${sBYELLOW}craft${sRESET} named ${sHL}$2${sRESET} found."
   else
-    echo "$fEMPTY"
-    echo "$fOK Removing ${sBYELLOW}$2${sRESET}..."
+    echo "$fSOK  Removing ${sBYELLOW}$2${sRESET}..."
     rm "$edCR/$2"
   fi
 }

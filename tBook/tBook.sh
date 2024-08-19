@@ -28,6 +28,14 @@ if [ -f "$cCR" ]; then
 fi
 
 
+# Remove target entry.
+tBo_remove() {
+  tI "$@"
+  tLi "$@"
+  tCr "$@"
+}
+
+
 # View all contents.
 tBo_view() {
   tI "$@"
@@ -72,9 +80,13 @@ tBo_help() {
   echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}"
   echo "$fBODY  are stored."
   echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tBo${sRESET} to display your current aliases,"
-  echo "$fBODY  or ${sHL}tBo -v [target]${sRESET} to view contents of a specific entry,"
+  echo "$fUSAGE ${sHL}tBo${sRESET} to display your current aliases."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tBo -v [target]${sRESET} to view contents of a specific entry,"
   echo "$fBODY  where ${sBBLUE}target${sRESET} is the name of a ${sBBLUE}tBook${sRESET} entry."
+  echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tBo -r [target]${sRESET} to remove a specific entry,"
+  echo "$fBODY  where ${sBBLUE}target${sRESET} is again the name of a ${sBBLUE}tBook${sRESET} entry."
 }
 
 
@@ -84,6 +96,12 @@ tBo() {
     tBo_help
   elif [ "$1" = "--view" ] || [ "$1" = "-v" ]; then
     tBo_view "$@"
+  elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
+    if [ -z "$2" ]; then
+      tA_too_few_arguments
+    else
+      tBo_remove "$@"
+    fi
   elif [ -z "$1" ]; then
     tBo_view "$@"
   else
