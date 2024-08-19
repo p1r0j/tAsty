@@ -12,11 +12,9 @@
 
     *   ***tCraft***. Used to create, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
 
-*   ***tRaveller***. A combination of navigation and file management tools. The **tRaveller** module consists of the following two components:
+*   ***tRaveller***. A collection of shell navigation tools. **tRaveller** includes tools such as **tView** for intelligently viewing the contents of files, directories, and more; **tBack** for quickly navigating to your previous working directory; **tUp** for moving up a specified number of directories; and more.
 
-    *   ***tNav***. A collection of shell navigation tools. **tNav** includes tools such as **tView** for intelligently viewing the contents of files, directories, and more; **tBack** for quickly navigating to your previous working directory; **tUp** for moving up a specified number of directories; and more.
-
-    * ***tFile***. A collection of command line file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. Similarly, **tRename** is a bulk rename tool. **tFile** also includes essential tools such as **tWrite**, **tLock**, **tSave**, and much more.
+* ***tFile***. A collection of command line file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. Similarly, **tRename** is a bulk rename tool. **tFile** also includes essential tools such as **tWrite**, **tLock**, **tSave**, and much more.
 
 *   ***tRash***. Bring trash can functionality to your **bash** shell. **tRash** works just like your desktop's trash can, with the ability to shred or restore its contents with a single command.
 

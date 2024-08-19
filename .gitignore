@@ -2,6 +2,6 @@ ide
 tBook/tIcket/Tickets/t*
 tBook/tLink/Links/t*
 tBook/tCraft/Crafts/t*
-tRaveller/tNav/tBack/cache
-tRaveller/tNav/tView/cat.cache
-tRaveller/tNav/tView/ls.cache
+tRaveller/tBack/cache
+tRaveller/tView/cat.cache
+tRaveller/tView/ls.cache
