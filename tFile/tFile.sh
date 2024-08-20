@@ -7,6 +7,7 @@
 # Aliases.
 alias tFile="tFe"
 alias tMove="tM"
+alias tCopy="tC"
 alias tDelete="tD"
 
 
@@ -20,7 +21,11 @@ tFe_help() {
   echo "$fUSE  ${sHL}tM [target] [destination]${sRESET}"
   echo "$fOPT  ${sHL}tM -f${sRESET} (force move with no confirmation)"
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tDelete${sRESET}] Delete target file/directory."
+  echo "$fNEUTRAL [${sBCYAN}tCopy${sRESET}] Copy target file/directory."
+  echo "$fUSE  ${sHL}tC [target] [destination]${sRESET}"
+  echo "$fOPT  ${sHL}tC -f${sRESET} (force copy with no confirmation)"
+  echo "$fEMPTY"
+  echo "$fTALK [${sBCYAN}tDelete${sRESET}] Delete target file/directory."
   echo "$fUSE  ${sHL}tD [target]${sRESET}"
   echo "$fOPT  ${sHL}tD -f${sRESET} (force deletion with no confirmation)"
 }
@@ -42,6 +47,28 @@ tD() {
     rm "$1"
   elif [ -d "$1" ]; then
     rm -r "$1"
+  else
+    tA_invalid_argument
+  fi
+}
+
+
+# tCopy callable function.
+tC() {
+  if [ -z "$2" ]; then
+    tA_too_few_arguments
+  elif [ "$1" = "--force" ] || [ "$1" = "-f" ]; then
+    if [ -z "$3" ]; then
+      tA_too_few_arguments
+    elif [ -f "$2" ] || [ -d "$2" ]; then
+      cp -rf "$2" "$3"
+    else
+      tA_invalid_argument
+    fi
+  elif [ -f "$1" ]; then
+    cp "$1" "$2"
+  elif [ -d "$1" ]; then
+    cp -r "$1" "$2"
   else
     tA_invalid_argument
   fi

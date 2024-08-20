@@ -153,7 +153,7 @@ tA_help() {
   echo "$fBODY  and ${sBBLUE}tNote${sRESET}."
   echo "$fEMPTY"
   echo "$fTIP Learn more about any of ${sBCYAN}tAsty${sRESET}'s modules"
-  echo "$fBODY  with the ${sHL}-h${sRESET} argument."
+  echo "$fBODY  with the ${sHL}-h${sRESET} option."
 }
 
 
