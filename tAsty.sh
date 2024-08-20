@@ -13,6 +13,7 @@ sA="$lDir/tAsty.sh"
 # Module directories.
 dBO="$lDir/tBook"
 dRV="$lDir/tRaveller"
+dFE="$lDir/tFile"
 dR="$lDir/tRash"
 dP="$lDir/tPocket"
 dCL="$lDir/tClip"
@@ -20,6 +21,7 @@ dNO="$lDir/tNote"
 # Modules.
 mBO="$dBO/tBook.sh"
 mRV="$dRV/tRaveller.sh"
+mFE="$dFE/tFile.sh"
 mR="$dR/tRash.sh"
 mP="$dP/tPocket.sh"
 mCL="$dCL/tClip.sh"
@@ -78,6 +80,9 @@ if [ -f "$mBO" ]; then
 fi
 if [ -f "$mRV" ]; then
   source "$mRV"
+fi
+if [ -f "$mFE" ]; then
+  source "$mFE"
 fi
 if [ -f "$mR" ]; then
   source "$mR"

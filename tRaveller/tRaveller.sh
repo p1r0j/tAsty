@@ -16,6 +16,7 @@ tV_mode="None"
 # Aliases.
 alias tRaveller="tRv"
 alias tView="tV"
+alias tSearch="tSr"
 alias tNav="tN"
 alias tUp="tU"
 alias tBack="tB"
@@ -133,6 +134,9 @@ tRv_help() {
   echo "$fBODY  of ${sBBLUE}tView${sRESET}'s output is for use"
   echo "$fBODY  with ${sBBLUE}tSelect${sRESET} and ${sBBLUE}tClip${sRESET}."
   echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tSr \"[search phrase]\"${sRESET} to search your current working directory"
+  echo "$fBODY  for a specified search phrase."
+  echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tN${sRESET} for navigating to your home directory,"
   echo "$fBODY  or ${sHL}tN [target]${sRESET} for navigating to a target directory"
   echo "$fBODY  (the previous working directory will be saved for use with ${sBBLUE}tB${sRESET})."
@@ -197,6 +201,47 @@ tN() {
     tA_invalid_argument
   else
     tN_navigate "$@"
+  fi
+}
+
+
+# tFilter callable function.
+tSr() {
+  if [ -z "$1" ]; then
+    tA_too_few_arguments
+  else
+    searchPhrase="$1"
+    currentFile=""
+    echo "$fEMPTY"
+    echo "$fMONOCLE Searching for ${sHL}$1${sRESET}..."
+    while IFS= read -r file; do
+      if [[ "$file" = *".git"* ]]; then
+        continue
+      fi
+      if [[ $(file --mime-type -b "$file") = "application/octet-stream" ]]; then
+        continue
+      fi
+      lineNumber=1
+      while IFS= read -r line; do
+        if [[ "$line" =~ $searchPhrase ]]; then
+          if [ "$file" != "$currentFile" ]; then
+            echo "$fEMPTY"
+            echo "$fOK ${sHL}$file${sRESET}"
+            currentFile="$file"
+          fi
+          if [ $(echo -n "$lineNumber" | wc -c) -eq 1 ]; then
+            choice="  $lineNumber"
+          elif [ $(echo -n "$lineNumber" | wc -c) -eq 2 ]; then
+            choice=" $lineNumber"
+          else
+            choice="$lineNumber"
+          fi
+          echo " |${sCYAN}$choice${sRESET}|  $line"
+        fi
+        ((lineNumber++))
+      done < "$file"
+    done < <(find "$(pwd)" -type f)
+    return
   fi
 }
 
