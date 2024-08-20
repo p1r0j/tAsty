@@ -113,7 +113,7 @@ if [ "$1" = "--setup" ]; then
   echo "$fBODY  (${sHL}source ~/.bashrc${sRESET})"
   echo "$fBODY  and tAsty should now be working."
   echo "$fEMPTY"
-  echo "$fNEUTRAL Try running the command ${sHL}tA${sRESET}"
+  echo "$fNEUTRAL Try running the command ${sHL}tA -h${sRESET}"
   echo "$fBODY  to get started if this is your first time,"
   echo "$fBODY  or if you need a refresher."
 fi
@@ -152,7 +152,7 @@ tA_help() {
   echo "$fBODY  ${sBBLUE}tRash${sRESET}, ${sBBLUE}tPocket${sRESET}, ${sBBLUE}tClip${sRESET},"
   echo "$fBODY  and ${sBBLUE}tNote${sRESET}."
   echo "$fEMPTY"
-  echo "$fTIP Learn more about any of ${sBCYAN}tAsty${sRESET}'s modules"
+  echo "$fTIP Learn more about each of ${sBCYAN}tAsty${sRESET}'s modules"
   echo "$fBODY  with the ${sHL}-h${sRESET} option."
 }
 

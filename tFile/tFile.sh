@@ -10,6 +10,7 @@ alias tMove="tM"
 alias tCopy="tC"
 alias tDelete="tD"
 alias tWrite="tW"
+alias tEdit="tE"
 
 
 # tFile help info.
@@ -38,6 +39,31 @@ tFe_help() {
   echo "$fBODY  using the ${sBBLUE}replace${sRESET} option."
   echo "$fBODY  With this option, the target will be"
   echo "$fBODY  created if it does not already exist."
+  echo "$fEMPTY"
+  echo "$fTALK [${sBCYAN}tEdit${sRESET}] Open file for editing."
+  echo "$fUSE  ${sHL}tE [target]${sRESET}"
+  echo "$fEMPTY"
+  echo "$fTIP ${sBBLUE}tEdit${sRESET} uses your preferred ${sBBLUE}EDITOR${sRESET}"
+  echo "$fBODY  (generally defined in your ${sHL}~/.bashrc${sRESET} file)."
+  echo "$fBODY  Otherwise, it will default to ${sBBLUE}vim${sRESET}."
+}
+
+
+# tEdit callable function.
+tE() {
+  if [ -z "$1" ]; then
+    if [ -z "$EDITOR" ]; then
+      vim
+    else
+      $EDITOR
+    fi
+  else
+    if [ -z "$EDITOR" ]; then
+      vim "$1"
+    else
+      $EDITOR "$1"
+    fi
+  fi
 }
 
 
