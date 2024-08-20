@@ -91,7 +91,7 @@ tBo_help() {
   echo "$fBODY  ${sHL}tBo -r [target]${sRESET} (remove target alias)"
   echo "$fBODY  ${sHL}tBo --shred${sRESET} (remove all aliases)"
   echo "$fEMPTY"
-  echo "$fTIP See usage info for"
+  echo "$fTIP See help info for"
   echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}"
   echo "$fBODY  for how to add entries to your ${sBBLUE}tBook${sRESET}."
 }

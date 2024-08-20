@@ -9,6 +9,7 @@ alias tFile="tFe"
 alias tMove="tM"
 alias tCopy="tC"
 alias tDelete="tD"
+alias tWrite="tW"
 
 
 # tFile help info.
@@ -28,6 +29,33 @@ tFe_help() {
   echo "$fTALK [${sBCYAN}tDelete${sRESET}] Delete target file/directory."
   echo "$fUSE  ${sHL}tD [target]${sRESET}"
   echo "$fOPT  ${sHL}tD -f${sRESET} (force deletion with no confirmation)"
+  echo "$fEMPTY"
+  echo "$fNEUTRAL [${sBCYAN}tWrite${sRESET}] Write to target file."
+  echo "$fUSE  ${sHL}tW "[string]" [target]${sRESET} (append string to target)"
+  echo "$fOPT  ${sHL}tW -r${sRESET} (replace target with string)"
+  echo "$fEMPTY"
+  echo "$fTIP ${sBBLUE}tWrite${sRESET} can be used to create new files"
+  echo "$fBODY  using the ${sBBLUE}replace${sRESET} option."
+  echo "$fBODY  With this option, the target will be"
+  echo "$fBODY  created if it does not already exist."
+}
+
+
+# tWrite callable function.
+tW() {
+  if [ -z "$2" ]; then
+    tA_too_few_arguments
+  elif [ "$1" = "--replace" ] || [ "$1" = "-r" ]; then
+    if [ -z "$3" ]; then
+      tA_too_few_arguments
+    else
+      echo "$2" > "$3"
+    fi
+  elif [ -f "$2" ]; then
+    echo "$1" >> "$2"
+  else
+    tA_invalid_argument
+  fi
 }
 
 
