@@ -82,23 +82,18 @@ tCr_view_entries() {
 # Craft help info.
 tCr_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL ${sBYELLOW}tCraft${sRESET} is used to add, remove, and view custom aliases,"
-  echo "$fBODY  allowing you to bookmark any command you wish."
+  echo "$fNEUTRAL [${sBYELLOW}tCraft${sRESET}] Add, remove, and view custom aliases."
+  echo "$fUSE  ${sHL}tCr${sRESET} (view all aliases)"
+  echo "$fOPT  ${sHL}tCr -a \"[command]\"${sRESET} (add new alias)"
+  echo "$fBODY  ${sHL}tCr -v [target]${sRESET} (view contents of target alias)"
+  echo "$fBODY  ${sHL}tCr -r [target]${sRESET} (remove target alias)"
+  echo "$fBODY  ${sHL}tCr --shred${sRESET} (remove all aliases)"
   echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tCr${sRESET} to view a list of existing aliases."
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tCr -a \"[command]\"${sRESET} to add a new alias."
+  echo "$fTIP ${sBYELLOW}tCraft${sRESET} allows you to create an alias from any command,"
+  echo "$fBODY  extending ${sBCYAN}tAsty${sRESET}'s functionality"
+  echo "$fBODY  in whatever direction you choose to take it."
   echo "$fEMPTY"
   echo "$fEXMPL ${sHL}tCr -a \"sudo apt update && sudo apt upgrade\"${sRESET}"
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tCr -r [target]${sRESET} to remove an existing alias,"
-  echo "$fBODY  where ${sBBLUE}target${sRESET} is the full alias name."
-  echo "$fEMPTY"
-  echo "$fEXMPL ${sHL}tCr -r tUpdate${sRESET}"
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tCr -v [target]${sRESET} to view the contents of a target alias."
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tCr --shred${sRESET} to remove all existing aliases."
 }
 
 

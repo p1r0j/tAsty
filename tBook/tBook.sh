@@ -84,19 +84,12 @@ tBo_validate_name() {
 # Book help info.
 tBo_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL ${sBBLUE}tBook${sRESET} is where your aliases created with"
-  echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}"
-  echo "$fBODY  are stored."
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tBo${sRESET} to display your current aliases."
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tBo -v [target]${sRESET} to view contents of a specific entry,"
-  echo "$fBODY  where ${sBBLUE}target${sRESET} is the name of a ${sBBLUE}tBook${sRESET} entry."
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tBo -r [target]${sRESET} to remove a specific entry,"
-  echo "$fBODY  where ${sBBLUE}target${sRESET} is again the name of a ${sBBLUE}tBook${sRESET} entry."
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tBo --shred${sRESET} to remove all existing entries."
+  echo "$fNEUTRAL [${sBCYAN}tBook${sRESET}] View and remove custom aliases using"
+  echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}."
+  echo "$fUSE  ${sHL}tBo${sRESET} (view all aliases)"
+  echo "$fOPT  ${sHL}tBo -v [target]${sRESET} (view contents of target alias)"
+  echo "$fBODY  ${sHL}tBo -r [target]${sRESET} (remove target alias)"
+  echo "$fBODY  ${sHL}tBo --shred${sRESET} (remove all aliases)"
 }
 
 

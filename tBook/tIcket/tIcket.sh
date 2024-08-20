@@ -86,24 +86,18 @@ tI_view_entries() {
 # Ticket help info.
 tI_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL ${sBPINK}tIcket${sRESET} is used to add, remove, and view ${sBBLUE}cd${sRESET} aliases,"
-  echo "$fBODY  which allow you to bookmark frequented local directories."
+  echo "$fNEUTRAL [${sBPINK}tIcket${sRESET}] Add, remove, and view ${sBBLUE}cd${sRESET} aliases."
+  echo "$fUSE  ${sHL}tI${sRESET} (view all aliases)"
+  echo "$fOPT  ${sHL}tI -a [path/to/target]${sRESET} (add new alias)"
+  echo "$fBODY  ${sHL}tI -v [target]${sRESET} (view contents of target alias)"
+  echo "$fBODY  ${sHL}tI -r [target]${sRESET} (remove target alias)"
+  echo "$fBODY  ${sHL}tI --shred${sRESET} (remove all aliases)"
   echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tI${sRESET} to view a list of existing aliases."
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tI -a [target]${sRESET} to add a new alias,"
-  echo "$fBODY  where ${sBBLUE}target${sRESET} is a directory path."
+  echo "$fTIP ${sBPINK}tIckets${sRESET} are like bookmarks,"
+  echo "$fBODY  used to quickly travel to frequented"
+  echo "$fBODY  locations within your local file system."
   echo "$fEMPTY"
   echo "$fEXMPL ${sHL}tI -a ~/Documents/Work/Project/Notes/${sRESET}"
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tI -r [target]${sRESET} to remove an existing alias,"
-  echo "$fBODY  where ${sBBLUE}target${sRESET} is the full alias name."
-  echo "$fEMPTY"
-  echo "$fEXMPL ${sHL}tI -r tWorkNotes${sRESET}"
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tI -v [target]${sRESET} to view the contents of a target alias."
-  echo "$fEMPTY"
-  echo "$fUSAGE ${sHL}tI --shred${sRESET} to remove all existing aliases."
 }
 
 
