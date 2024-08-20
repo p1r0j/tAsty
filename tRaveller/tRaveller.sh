@@ -17,6 +17,7 @@ tV_mode="None"
 alias tRaveller="tRv"
 alias tView="tV"
 alias tSearch="tSr"
+alias tFilter="tF"
 alias tNav="tN"
 alias tUp="tU"
 alias tBack="tB"
@@ -137,6 +138,15 @@ tRv_help() {
   echo "$fUSAGE ${sHL}tSr \"[search phrase]\"${sRESET} to search your current working directory"
   echo "$fBODY  for a specified search phrase."
   echo "$fEMPTY"
+  echo "$fUSAGE ${sHL}tF -k \"[search phrase]\"${sRESET} to filter by keyword,"
+  echo "$fBODY  or ${sHL}tF -l [#-#]${sRESET} to filter by line number."
+  echo "$fEMPTY"
+  echo "$fTIP ${sBBLUE}tFilter${sRESET} is meant to be used in conjunction"
+  echo "$fBODY  with other commands, such as ${sBBLUE}tView${sRESET},"
+  echo "$fBODY  through the use of pipes (|)."
+  echo "$fEMPTY"
+  echo "$fEXMPL ${sHL}tV work.note | tF -k \"meeting\"${sRESET}"
+  echo "$fEMPTY"
   echo "$fUSAGE ${sHL}tN${sRESET} for navigating to your home directory,"
   echo "$fBODY  or ${sHL}tN [target]${sRESET} for navigating to a target directory"
   echo "$fBODY  (the previous working directory will be saved for use with ${sBBLUE}tB${sRESET})."
@@ -205,7 +215,25 @@ tN() {
 }
 
 
-# tFilter callable function.
+# tFilter callable function
+tF() {
+  if [ -z "$2" ]; then
+    tA_too_few_arguments
+  elif [ "$1" = "--line" ] || [ "$1" = "-l" ]; then
+    if [[ $2 =~ ^[0-9]+-[0-9]+$ ]]; then
+      startLine=$(echo "$2" | cut -d'-' -f1)
+      endLine=$(echo "$2" | cut -d'-' -f2)
+      sed -n "${startLine},${endLine}p"
+    else
+      tA_invalid_argument
+    fi
+  elif [ "$1" = "--keyword" ] || [ "$1" = "-k" ]; then
+    grep -i --color=never "$2"
+  fi
+}
+
+
+# tSearch callable function.
 tSr() {
   if [ -z "$1" ]; then
     tA_too_few_arguments
