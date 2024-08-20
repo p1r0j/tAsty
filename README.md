@@ -6,23 +6,23 @@
 
 *   ***tBook***. A place to store custom **bash** aliases. Simply run the command `tBo` to view all your current aliases. **tBook** consists of three distinct components:
 
-    *   ***tIcket***. Used to create, view, and remove **cd** aliases. Useful for bookmarking frequented directories.
+    *   ***tIcket***. Used to add, view, and remove **cd** aliases. Useful for bookmarking frequented directories.
 
-    *   ***tLink***. Used to create, view, and remove **unison** aliases. Useful for synching local and remote directories.
+    *   ***tLink***. Used to add, view, and remove **unison** aliases. Useful for synching local and remote directories.
 
-    *   ***tCraft***. Used to create, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
+    *   ***tCraft***. Used to add, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
 
-*   ***tRaveller***. A collection of shell navigation tools. **tRaveller** includes tools such as **tView** for intelligently viewing the contents of files, directories, and more; **tBack** for quickly navigating to your previous working directory; **tUp** for moving up a specified number of directories; and more.
+*   ***tRaveller***. A collection of shell navigation tools. **tRaveller** includes tools such as **tView** for intelligently viewing the contents of files and directories, **tSearch** for searching your current working directory for files containing a specified string, **tFilter** for filtering the output of any **bash** command by keyword or line number, and more.
 
-* ***tFile***. A collection of command line file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. Similarly, **tRename** is a bulk rename tool. **tFile** also includes essential tools such as **tWrite**, **tLock**, **tSave**, and much more.
+* ***tFile***. A collection of command line file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. Similarly, **tRename** is a bulk rename tool. **tFile** also includes productivity essentials such as **tWrite**, **tLock**, **tSave**, and much more.
 
 *   ***tRash***. Bring trash can functionality to your **bash** shell. **tRash** works just like your desktop's trash can, with the ability to shred or restore its contents with a single command.
 
-*   ***tPocket***. **tPocket** is a convenient place to store commonly used files/directories. You can copy targets into your **tPocket** for later use, and then paste its contents into a targeted destination. **tPocket** can also be saved, loaded, or its contents shredded with a single command.
+*   ***tPocket***. **tPocket** is a convenient place to store commonly used files/directories. You can copy targets into your **tPocket** for later use, and then paste its contents into a target destination. **tPocket** can also be saved, loaded, or its contents shredded with a single command.
 
-*   ***tClip***. **tAsty** also includes its own clipboard. Use **tClip** to quickly copy and append the contents of files viewed with **tView** (see ***tNav*** above). Additionally, clear the contents, paste to **tNote** (see ***tNote*** next), or open up your **tClip** for editing with a single command.
+*   ***tClip***. **tAsty** also includes its own clipboard. Use **tClip** to quickly copy and append the contents of files viewed with **tView** (see ***tRaveller*** above). Additionally, clear the contents, paste to **tNote** (see ***tNote*** next), or open up your **tClip** for editing with a single command.
 
-*   ***tNote***. A simple notepad for convenient note-taking in **bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, found in your `~/.bashrc` file). Can also be saved, loaded, or cleared with a single command.
+*   ***tNote***. A simple notepad for convenient note-taking in **bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, often found in your `~/.bashrc` file). Can also be saved, loaded, or cleared with a single command.
 
 ## Installation
 
