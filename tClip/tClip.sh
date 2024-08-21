@@ -45,7 +45,7 @@ tCl_copy() {
 # tClip help info.
 tCl_help(){
   echo "$fEMPTY"
-  echo "$fNEUTRAL ${sBCYAN}tClip${sRESET} consists of two components:"
+  echo "$fTALK ${sBCYAN}tClip${sRESET} consists of two components:"
   echo "$fBODY  ${sBBLUE}tClip${sRESET} and ${sBBLUE}tPaste${sRESET}."
   echo "$fEMPTY"
   echo "$fTALK [${sBBLUE}tClip${sRESET}] A clipboard for ${sBBLUE}bash${sRESET}."
@@ -55,7 +55,7 @@ tCl_help(){
   echo "$fBODY  ${sHL}tCl -e${sRESET} (open clipboard for editing)"
   echo "$fBODY  ${sHL}tCl --shred${sRESET} (clear clipboard)"
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBBLUE}tPaste${sRESET}] Paste clipboard contents to target."
+  echo "$fTALK [${sBBLUE}tPaste${sRESET}] Paste clipboard contents to target."
   echo "$fUSE  ${sHL}tPa [target]${sRESET} (append clipboard to target)"
   echo "$fOPT  ${sHL}tPa -r [target]${sRESET} (replace target with clipboard)"
 }

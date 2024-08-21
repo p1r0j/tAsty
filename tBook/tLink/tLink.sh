@@ -97,7 +97,7 @@ tLi_view_entries() {
 # Link help info.
 tLi_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBGREEN}tLink${sRESET}] Add, edit, remove, and view ${sBBLUE}unison${sRESET} aliases."
+  echo "$fTALK [${sBGREEN}tLink${sRESET}] Add, edit, remove, and view ${sBBLUE}unison${sRESET} aliases."
   echo "$fUSE  ${sHL}tLi${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tLi -a [target1] [target2]${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tLi -v [target]${sRESET} (view contents of target alias)"

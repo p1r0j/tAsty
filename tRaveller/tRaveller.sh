@@ -120,7 +120,7 @@ tRv_greeting() {
 # Navigate help info.
 tRv_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL ${sBBLUE}tRaveller${sRESET} is a collection of navigational tools,"
+  echo "$fTALK ${sBBLUE}tRaveller${sRESET} is a collection of navigational tools,"
   echo "$fBODY  consisting of the following:"
   echo "$fEMPTY"
   echo "$fTALK [${sBCYAN}tView${sRESET}] View contents of files/directories."
@@ -132,7 +132,7 @@ tRv_help() {
   echo "$fBODY  of ${sBBLUE}tView${sRESET}'s output are for use"
   echo "$fBODY  with ${sBBLUE}tSelect${sRESET} and ${sBBLUE}tClip${sRESET}."
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tSearch${sRESET}] Search current working directory for keyword/phrase."
+  echo "$fTALK [${sBCYAN}tSearch${sRESET}] Search current working directory for keyword/phrase."
   echo "$fUSE  ${sHL}tSr \"[search phrase]\"${sRESET}"
   echo "$fEMPTY"
   echo "$fTALK [${sBCYAN}tFilter${sRESET}] Filter results of piped command via keyword/line number."
@@ -148,7 +148,7 @@ tRv_help() {
   echo "$fEMPTY"
   echo "$fEXMPL ${sHL}tV work.note | tF -l \"4-20\"${sRESET}"
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tNav${sRESET}] Navigate your file system."
+  echo "$fTALK [${sBCYAN}tNav${sRESET}] Navigate your file system."
   echo "$fUSE  ${sHL}tN${sRESET} (navigate to home directory)"
   echo "$fBODY  ${sHL}tN [target]${sRESET} (navigate to target directory)"
   echo "$fEMPTY"
@@ -156,7 +156,7 @@ tRv_help() {
   echo "$fUSE  ${sHL}tU${sRESET} (move up single directory)"
   echo "$fBODY  ${sHL}tU [#]${sRESET} (move up specified number of directories)"
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tBack${sRESET}] Move back to previous working directory."
+  echo "$fTALK [${sBCYAN}tBack${sRESET}] Move back to previous working directory."
   echo "$fUSE  ${sHL}tB${sRESET}"
   echo "$fEMPTY"
   echo "$fTALK [${sBCYAN}tFresh${sRESET}] Quickly source your ${sHL}~/.bashrc${sRESET} file."
@@ -171,7 +171,7 @@ tRv_help() {
 # tFresh callable function.
 tFs() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL ${sGREEN}Feelin' fresh${sRESET}."
+  echo "$fTALK ${sGREEN}Feelin' fresh${sRESET}."
   source ~/.bashrc
 }
 

@@ -4,23 +4,27 @@
 # for The Alias Supplement ThingY,
 # tAsty.
 
+# Switches.
+unlockMode="File"
 # Aliases.
 alias tFile="tFe"
 alias tMake="tMa"
 alias tMove="tM"
 alias tCopy="tC"
 alias tDelete="tD"
+alias tSave="tSv"
+alias tLoad="tL"
+alias tLock="tLc"
+alias tUnlock="tU"
 alias tWrite="tW"
 alias tEdit="tE"
 alias tReplace="tRp"
-alias tSave="tSv"
-alias tLoad="tL"
 
 
 # tFile help info.
 tFe_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL ${sBBLUE}tFile${sRESET} is a collection of file management tools,"
+  echo "$fTALK ${sBBLUE}tFile${sRESET} is a collection of file management tools,"
   echo "$fBODY  consisting of the following:"
   echo "$fEMPTY"
   echo "$fTALK [${sBCYAN}tMake${sRESET}] Create new file/directory."
@@ -28,7 +32,7 @@ tFe_help() {
   echo "$fOPT  ${sHL}tMa -f [name]${sRESET} (create new file)"
   echo "$fBODY  ${sHL}tMa -d [name]${sRESET} (create new directory)"
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tMove${sRESET}] Move target file/directory."
+  echo "$fTALK [${sBCYAN}tMove${sRESET}] Move target file/directory."
   echo "$fUSE  ${sHL}tM [target] [destination]${sRESET}"
   echo "$fOPT  ${sHL}tM -f${sRESET} (force move with no confirmation)"
   echo "$fEMPTY"
@@ -36,7 +40,7 @@ tFe_help() {
   echo "$fUSE  ${sHL}tC [target] [destination]${sRESET}"
   echo "$fOPT  ${sHL}tC -f${sRESET} (force copy with no confirmation)"
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tDelete${sRESET}] Delete target file/directory."
+  echo "$fTALK [${sBCYAN}tDelete${sRESET}] Delete target file/directory."
   echo "$fUSE  ${sHL}tD [target]${sRESET}"
   echo "$fOPT  ${sHL}tD -f${sRESET} (force deletion with no confirmation)"
   echo "$fEMPTY"
@@ -44,9 +48,20 @@ tFe_help() {
   echo "$fUSE  ${sHL}tSv [target]${sRESET} (save copy as [target].save)"
   echo "$fBODY  ${sHL}tSv [target] [name]${sRESET} (save copy as [name].save)"
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tLoad${sRESET}] Load saved copy of target using ${sBBLUE}rsync${sRESET}."
+  echo "$fTALK [${sBCYAN}tLoad${sRESET}] Load saved copy of target using ${sBBLUE}rsync${sRESET}."
   echo "$fUSE  ${sHL}tL [target]${sRESET} (load [target].save as [target])"
   echo "$fBODY  ${sHL}tL [target] [name]${sRESET} (load [target].save as [name])"
+  echo "$fEMPTY"
+  echo "$fTALK [${sBCYAN}tLock${sRESET}] Lock target using ${sBBLUE}openssl${sRESET}."
+  echo "$fUSE  ${sHL}tLc [target]${sRESET} (lock target and retain original)"
+  echo "$fOPT  ${sHL}tLc -d [target]${sRESET} (lock target and delete original)"
+  echo "$fEMPTY"
+  echo "$fTALK [${sBCYAN}tUnlock${sRESET}] Unlock targets locked with ${sBBLUE}tLock${sRESET}."
+  echo "$fUSE  ${sHL}tU [target]${sRESET} (unlock target and retain original)"
+  echo "$fOPT  ${sHL}tU -d [target]${sRESET} (unlock target and delete original)"
+  echo "$fEMPTY"
+  echo "$fTIP When targeting a locked file with ${sBBLUE}tUnlock${sRESET},"
+  echo "$fBODY  do not include the \".lock\" portion of the filename."
   echo "$fEMPTY"
   echo "$fTALK [${sBCYAN}tWrite${sRESET}] Write to target file."
   echo "$fUSE  ${sHL}tW "[string]" [target]${sRESET} (append string to target)"
@@ -57,7 +72,7 @@ tFe_help() {
   echo "$fBODY  With this option, the target will be"
   echo "$fBODY  created if it does not already exist."
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tEdit${sRESET}] Open file for editing."
+  echo "$fTALK [${sBCYAN}tEdit${sRESET}] Open file for editing."
   echo "$fUSE  ${sHL}tE [target]${sRESET}"
   echo "$fEMPTY"
   echo "$fTIP ${sBBLUE}tEdit${sRESET} uses your preferred ${sBBLUE}EDITOR${sRESET}"
@@ -69,62 +84,6 @@ tFe_help() {
   echo "$fEMPTY"
   echo "$fTIP ${sBBLUE}tReplace${sRESET} will ignore lines containing the safeword,"
   echo "$fBODY  ${sHL}wHiskey${sRESET} (caps sensitive)."
-}
-
-
-# tLoad callable function.
-tL() {
-  if [ -z "$1" ]; then
-    tA_too_few_arguments
-  elif [ -f "$1.save" ] || [ -d "$1.save" ]; then
-    if [ -z "$2" ]; then
-      if [ -d "$1.save" ]; then
-        rsync -ar --delete "$1.save/" "$1/"
-      elif [ -f "$1.save" ]; then
-        rsync -a --delete "$1.save" "$1"
-      else
-        tA_invalid_argument
-      fi
-    else
-      if [ -d "$1.save" ]; then
-        rsync -ar --delete "$1.save/" "$2/"
-      elif [ -f "$1.save" ]; then
-        rsync -a --delete "$1.save" "$2"
-      else
-        tA_invalid_argument
-      fi
-    fi
-  else
-    tA_invalid_argument
-  fi
-}
-
-
-# tSave callable function.
-tSv() {
-  if [ -z "$1" ]; then
-    tA_too_few_arguments
-  elif [ -f "$1" ] || [ -d "$1" ]; then
-    if [ -z "$2" ]; then
-      if [ -d "$1" ]; then
-        rsync -ar --delete "$1/" "$1.save/"
-      elif [ -f "$1" ]; then
-        rsync -a --delete "$1" "$1.save"
-      else
-        tA_invalid_argument
-      fi
-    else
-      if [ -d "$1" ]; then
-        rsync -ar --delete "$1/" "$2.save/"
-      elif [ -f "$1" ]; then
-        rsync -a --delete "$1" "$2.save"
-      else
-        tA_invalid_argument
-      fi
-    fi
-  else
-    tA_invalid_argument
-  fi
 }
 
 
@@ -203,6 +162,130 @@ tW() {
     fi
   elif [ -f "$2" ]; then
     echo "$1" >> "$2"
+  else
+    tA_invalid_argument
+  fi
+}
+
+
+# tUnlock callable function.
+tU() {
+  if [ -z "$1" ]; then
+    tA_too_few_arguments
+  elif [ "$1" = "--delete" ] || [ "$1" = "-d" ]; then
+    if [ -z "$2" ]; then
+      tA_too_few_arguments
+    elif [ -f "$2" ] && [[ "$2" = *.lock ]]; then
+      unlockFile="${2%.lock}"
+      if [[ "$unlockFile" = *.tar ]]; then
+        unlockMode="Directory"
+      fi
+      openssl enc -d -aes-256-cbc -salt -in "$2" -out "$unlockFile" -pbkdf2
+      if [ "$unlockMode" = "Directory" ]; then
+        tar -xf "$unlockFile"
+        rm "$unlockFile"
+      fi
+      rm "$2"
+    else
+      tA_invalid_argument
+    fi
+  elif [ -f "$1" ] && [[ "$1" = *.lock ]]; then
+    unlockFile="${1%.lock}"
+    if [[ "$unlockFile" = *.tar ]]; then
+      unlockMode="Directory"
+    fi
+    openssl enc -d -aes-256-cbc -salt -in "$1" -out "$unlockFile" -pbkdf2
+    if [ "$unlockMode" = "Directory" ]; then
+      tar -xf "$unlockFile"
+      rm "$unlockFile"
+    fi
+  else
+    tA_invalid_argument
+  fi
+  unlockMode="File"
+}
+
+
+# tLock callable function.
+tLc() {
+  if [ -z "$1" ]; then
+    tA_too_few_arguments
+  elif [ "$1" = "--delete" ] || [ "$1" = "-d" ]; then
+    if [ -z "$2" ]; then
+      tA_too_few_arguments
+    elif [ -f "$2" ]; then
+      openssl enc -aes-256-cbc -salt -in "$2" -out "$2.lock" -pbkdf2
+      rm "$2"
+    elif [ -d "$2" ]; then
+      tar -czvf "$2.tar" "$2"
+      openssl enc -aes-256-cbc -salt -in "$2.tar" -out "$2.tar.lock" -pbkdf2
+      rm -rf "$2"
+      rm "$2.tar"
+    else
+      tA_invalid_argument
+    fi
+  elif [ -f "$1" ]; then
+    openssl enc -aes-256-cbc -salt -in "$1" -out "$1.lock" -pbkdf2
+  elif [ -d "$1" ]; then
+    tar -czvf "$1.tar" "$1"
+    openssl enc -aes-256-cbc -salt -in "$1.tar" -out "$1.tar.lock" -pbkdf2
+    rm "$1.tar"
+  else
+    tA_invalid_argument
+  fi
+}
+
+
+# tLoad callable function.
+tL() {
+  if [ -z "$1" ]; then
+    tA_too_few_arguments
+  elif [ -f "$1.save" ] || [ -d "$1.save" ]; then
+    if [ -z "$2" ]; then
+      if [ -d "$1.save" ]; then
+        rsync -ar --delete "$1.save/" "$1/"
+      elif [ -f "$1.save" ]; then
+        rsync -a --delete "$1.save" "$1"
+      else
+        tA_invalid_argument
+      fi
+    else
+      if [ -d "$1.save" ]; then
+        rsync -ar --delete "$1.save/" "$2/"
+      elif [ -f "$1.save" ]; then
+        rsync -a --delete "$1.save" "$2"
+      else
+        tA_invalid_argument
+      fi
+    fi
+  else
+    tA_invalid_argument
+  fi
+}
+
+
+# tSave callable function.
+tSv() {
+  if [ -z "$1" ]; then
+    tA_too_few_arguments
+  elif [ -f "$1" ] || [ -d "$1" ]; then
+    if [ -z "$2" ]; then
+      if [ -d "$1" ]; then
+        rsync -ar --delete "$1/" "$1.save/"
+      elif [ -f "$1" ]; then
+        rsync -a --delete "$1" "$1.save"
+      else
+        tA_invalid_argument
+      fi
+    else
+      if [ -d "$1" ]; then
+        rsync -ar --delete "$1/" "$2.save/"
+      elif [ -f "$1" ]; then
+        rsync -a --delete "$1" "$2.save"
+      else
+        tA_invalid_argument
+      fi
+    fi
   else
     tA_invalid_argument
   fi

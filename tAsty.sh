@@ -48,8 +48,8 @@ sBOLD=$(tput bold)
 sRESET=$(tput sgr0)
 # Faces.
 fINPUT="(${sBPINK}~[ ]~${sRESET})"
-fNEUTRAL="[${sBCYAN}~'_'~${sRESET}]"
-fTALK="[${sBCYAN}~'o'~${sRESET}]"
+fNEUTRAL="[${sBCYAN}~'_'~${sRESET}]" # wHiskey
+fTALK="[${sBCYAN}~>o<~${sRESET}]"
 fHAPPY="[${sBCYAN}~'w'~${sRESET}]"
 fSIGH="[${sBCYAN}~-.-~${sRESET}]"
 fMONOCLE="[${sBCYAN}~p_-~${sRESET}]"
@@ -101,7 +101,7 @@ fi
 # Setup info.
 if [ "$1" = "--setup" ]; then
   echo "$fEMPTY"
-  echo "$fNEUTRAL Welcome, ${sBCYAN}tRaveller${sRESET}."
+  echo "$fTALK Welcome, ${sBCYAN}tRaveller${sRESET}."
   echo "$fBODY  Setting up tAsty is easy."
   echo "$fEMPTY"
   echo "$fTALK Simply paste the following line"
@@ -114,7 +114,7 @@ if [ "$1" = "--setup" ]; then
   echo "$fBODY  (${sHL}source ~/.bashrc${sRESET})"
   echo "$fBODY  and tAsty should now be working."
   echo "$fEMPTY"
-  echo "$fNEUTRAL Try running the command ${sHL}tA -h${sRESET}"
+  echo "$fTALK Try running the command ${sHL}tA -h${sRESET}"
   echo "$fBODY  to get started if this is your first time,"
   echo "$fBODY  or if you need a refresher."
 fi
@@ -145,7 +145,7 @@ tA_donate() {
 # tAsty help info.
 tA_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tAsty${sRESET}] An extension for your ${sHL}~/.bashrc${sRESET} file."
+  echo "$fTALK [${sBCYAN}tAsty${sRESET}] An extension for your ${sHL}~/.bashrc${sRESET} file."
   echo "$fOPT  ${sHL}tA -d${sRESET} (open donations link)"
   echo "$fEMPTY"
   echo "$fTALK ${sBCYAN}tAsty${sRESET} consists of the following modules:"
@@ -169,7 +169,7 @@ tPrompt() {
   done
   tPrompt="(\[${sBPINK}\]~[ ]~\[${sRESET}\]) "
   echo "$pDivider"
-  echo "$fNEUTRAL ${sBCYAN}$pName${sRESET}@${sBGREEN}$(hostname)${sRESET}:${sHL}$pDir${sRESET}"
+  echo "$fNEUTRAL ${sBCYAN}$pName${sRESET}@${sBGREEN}$(hostname)${sRESET}:${sHL}$pDir${sRESET}" # wHiskey
   echo " |${fTITLE}   ${sRESET}|  "
   PS1="$tPrompt"
 }
@@ -196,7 +196,7 @@ tA() {
     elif [ "$poked" = 0 ]; then
       ((poked++))
       echo "$fEMPTY"
-      echo "$fNEUTRAL Can I help you?"
+      echo "$fNEUTRAL Can I help you?" # wHiskey
     fi
   else
     tA_invalid_argument
