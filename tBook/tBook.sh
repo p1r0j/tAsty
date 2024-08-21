@@ -44,6 +44,14 @@ tBo_remove() {
 }
 
 
+# Edit target entry.
+tBo_edit() {
+  tI "$@"
+  tLi "$@"
+  tCr "$@"
+}
+
+
 # View all contents.
 tBo_view() {
   tI "$@"
@@ -84,10 +92,11 @@ tBo_validate_name() {
 # Book help info.
 tBo_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBCYAN}tBook${sRESET}] View and remove custom aliases using"
+  echo "$fNEUTRAL [${sBCYAN}tBook${sRESET}] View, edit, and remove custom aliases using"
   echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}."
   echo "$fUSE  ${sHL}tBo${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tBo -v [target]${sRESET} (view contents of target alias)"
+  echo "$fBODY  ${sHL}tBo -e [target]${sRESET} (open target alias for editing)"
   echo "$fBODY  ${sHL}tBo -r [target]${sRESET} (remove target alias)"
   echo "$fBODY  ${sHL}tBo --shred${sRESET} (remove all aliases)"
   echo "$fEMPTY"
@@ -103,6 +112,12 @@ tBo() {
     tBo_help
   elif [ "$1" = "--view" ] || [ "$1" = "-v" ]; then
     tBo_view "$@"
+  elif [ "$1" = "--edit" ] || [ "$1" = "-e" ]; then
+    if [ -z "$2" ]; then
+      tA_too_few_arguments
+    else
+      tBo_edit "$@"
+    fi
   elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
     if [ -z "$2" ]; then
       tA_too_few_arguments

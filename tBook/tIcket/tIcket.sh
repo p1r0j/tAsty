@@ -75,6 +75,18 @@ tI_view_entry() {
 }
 
 
+# Edit ticket entry.
+tI_edit_entry() {
+  if [ -z "$2" ]; then
+    tA_too_few_arguments
+  elif [ ! -f "$edI/$2" ]; then
+    echo "$fSERROR  No ${sBPINK}ticket${sRESET} named ${sHL}$2${sRESET} found."
+  else
+    tE "$edI/$2"
+  fi
+}
+
+
 # View ticket entries.
 tI_view_entries() {
   for file in "$edI"/*; do
@@ -86,10 +98,11 @@ tI_view_entries() {
 # Ticket help info.
 tI_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBPINK}tIcket${sRESET}] Add, remove, and view ${sBBLUE}cd${sRESET} aliases."
+  echo "$fNEUTRAL [${sBPINK}tIcket${sRESET}] Add, edit, remove, and view ${sBBLUE}cd${sRESET} aliases."
   echo "$fUSE  ${sHL}tI${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tI -a [path/to/target]${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tI -v [target]${sRESET} (view contents of target alias)"
+  echo "$fBODY  ${sHL}tI -e [target]${sRESET} (open target alias for editing)"
   echo "$fBODY  ${sHL}tI -r [target]${sRESET} (remove target alias)"
   echo "$fBODY  ${sHL}tI --shred${sRESET} (remove all aliases)"
   echo "$fEMPTY"
@@ -113,10 +126,12 @@ tI() {
     fi
   elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     tI_help
-  elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
-    tI_remove_entry "$@"
   elif [ "$1" = "--add" ] || [ "$1" = "-a" ]; then
     tI_add_entry "$@"
+  elif [ "$1" = "--edit" ] || [ "$1" = "-e" ]; then
+    tI_edit_entry "$@"
+  elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
+    tI_remove_entry "$@"
   elif [ "$1" = "--shred" ]; then
     tI_shred_entries
   else

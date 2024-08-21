@@ -68,6 +68,18 @@ tLi_remove_entry() {
 }
 
 
+# Edit ticket entry.
+tLi_edit_entry() {
+  if [ -z "$2" ]; then
+    tA_too_few_arguments
+  elif [ ! -f "$edLI/$2" ]; then
+    echo "$fSERROR  No ${sBGREEN}link${sRESET} named ${sHL}$2${sRESET} found."
+  else
+    tE "$edLI/$2"
+  fi
+}
+
+
 # View ticket entry.
 tLi_view_entry() {
   echo "$fBODY2  ${sHL}$(cat "$edLI/$2")${sRESET}"
@@ -85,10 +97,11 @@ tLi_view_entries() {
 # Link help info.
 tLi_help() {
   echo "$fEMPTY"
-  echo "$fNEUTRAL [${sBGREEN}tLink${sRESET}] Add, remove, and view ${sBBLUE}unison${sRESET} aliases."
+  echo "$fNEUTRAL [${sBGREEN}tLink${sRESET}] Add, edit, remove, and view ${sBBLUE}unison${sRESET} aliases."
   echo "$fUSE  ${sHL}tLi${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tLi -a [target1] [target2]${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tLi -v [target]${sRESET} (view contents of target alias)"
+  echo "$fBODY  ${sHL}tLi -e [target]${sRESET} (open target alias for editing)"
   echo "$fBODY  ${sHL}tLi -r [target]${sRESET} (remove target alias)"
   echo "$fBODY  ${sHL}tLi --shred${sRESET} (remove all aliases)"
   echo "$fEMPTY"
@@ -119,10 +132,12 @@ tLi() {
     fi
   elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     tLi_help
-  elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
-    tLi_remove_entry "$@"
   elif [ "$1" = "--add" ] || [ "$1" = "-a" ]; then
     tLi_add_entry "$@"
+  elif [ "$1" = "--edit" ] || [ "$1" = "-e" ]; then
+    tLi_edit_entry "$@"
+  elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
+    tLi_remove_entry "$@"
   elif [ "$1" = "--shred" ]; then
     tLi_shred_entries
   else

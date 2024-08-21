@@ -61,7 +61,7 @@ tFe_help() {
   echo "$fBODY  ${sHL}tSv [target] [name]${sRESET} (save copy as [name].save)"
   echo "$fEMPTY"
   echo "$fNEUTRAL [${sBCYAN}tLoad${sRESET}] Load saved copy of target using ${sBBLUE}rsync${sRESET}."
-  echo "$fUSE  ${sHL}tL [target]${sRESET} (load [target].save)"
+  echo "$fUSE  ${sHL}tL [target]${sRESET} (load [target].save as [target])"
   echo "$fBODY  ${sHL}tL [target] [name]${sRESET} (load [target].save as [name])"
 }
 
