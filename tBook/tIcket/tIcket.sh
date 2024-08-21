@@ -69,12 +69,6 @@ tI_remove_entry() {
 }
 
 
-# View ticket entry.
-tI_view_entry() {
-  echo "$fBODY1  ${sHL}$(cat "$edI/$2")${sRESET}"
-}
-
-
 # Edit ticket entry.
 tI_edit_entry() {
   if [ -z "$2" ]; then
@@ -84,6 +78,12 @@ tI_edit_entry() {
   else
     tE "$edI/$2"
   fi
+}
+
+
+# View ticket entry.
+tI_view_entry() {
+  echo "$fBODY1  ${sHL}$(cat "$edI/$2")${sRESET}"
 }
 
 
