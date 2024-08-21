@@ -13,6 +13,7 @@ alias tWrite="tW"
 alias tEdit="tE"
 alias tReplace="tRp"
 alias tSave="tSv"
+alias tLoad="tL"
 
 
 # tFile help info.
@@ -55,9 +56,41 @@ tFe_help() {
   echo "$fTIP ${sBBLUE}tReplace${sRESET} will ignore lines containing the safeword,"
   echo "$fBODY  ${sHL}wHiskey${sRESET} (caps sensitive)."
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tSave${sRESET}] Save copy of a target."
+  echo "$fTALK [${sBCYAN}tSave${sRESET}] Save copy of target using ${sBBLUE}rsync${sRESET}."
   echo "$fUSE  ${sHL}tSv [target]${sRESET} (save copy as [target].save)"
   echo "$fBODY  ${sHL}tSv [target] [name]${sRESET} (save copy as [name].save)"
+  echo "$fEMPTY"
+  echo "$fNEUTRAL [${sBCYAN}tLoad${sRESET}] Load saved copy of target using ${sBBLUE}rsync${sRESET}."
+  echo "$fUSE  ${sHL}tL [target]${sRESET} (load [target].save)"
+  echo "$fBODY  ${sHL}tL [target] [name]${sRESET} (load [target].save as [name])"
+}
+
+
+# tLoad callable function.
+tL() {
+  if [ -z "$1" ]; then
+    tA_too_few_arguments
+  elif [ -f "$1.save" ] || [ -d "$1.save" ]; then
+    if [ -z "$2" ]; then
+      if [ -d "$1.save" ]; then
+        rsync -ar --delete "$1.save/" "$1/"
+      elif [ -f "$1.save" ]; then
+        rsync -a --delete "$1.save" "$1"
+      else
+        tA_invalid_argument
+      fi
+    else
+      if [ -d "$1.save" ]; then
+        rsync -ar --delete "$1.save/" "$2/"
+      elif [ -f "$1.save" ]; then
+        rsync -a --delete "$1.save" "$2"
+      else
+        tA_invalid_argument
+      fi
+    fi
+  else
+    tA_invalid_argument
+  fi
 }
 
 
