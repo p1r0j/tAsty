@@ -136,7 +136,7 @@ tRv_help() {
   echo "$fUSE  ${sHL}tSr \"[search phrase]\"${sRESET}"
   echo "$fEMPTY"
   echo "$fTALK [${sBCYAN}tFilter${sRESET}] Filter results of piped command via keyword/line number."
-  echo "$fUSE  ${sHL}tF -[option] \"[keyword or number range]\"${sRESET}"
+  echo "$fUSE  ${sHL}tF -[option] \"[keyword or number range (#-#)]\"${sRESET}"
   echo "$fOPT  ${sHL}tF -k${sRESET} (filter by keyword/phrase)"
   echo "$fBODY  ${sHL}tF -l${sRESET} (filter by line number)"
   echo "$fEMPTY"
