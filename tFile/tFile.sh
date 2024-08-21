@@ -12,6 +12,7 @@ alias tDelete="tD"
 alias tWrite="tW"
 alias tEdit="tE"
 alias tReplace="tRp"
+alias tSave="tSv"
 
 
 # tFile help info.
@@ -53,6 +54,38 @@ tFe_help() {
   echo "$fEMPTY"
   echo "$fTIP ${sBBLUE}tReplace${sRESET} will ignore lines containing the safeword,"
   echo "$fBODY  ${sHL}wHiskey${sRESET} (caps sensitive)."
+  echo "$fEMPTY"
+  echo "$fTALK [${sBCYAN}tSave${sRESET}] Save copy of a target."
+  echo "$fUSE  ${sHL}tSv [target]${sRESET} (save copy as [target].save)"
+  echo "$fBODY  ${sHL}tSv [target] [name]${sRESET} (save copy as [name].save)"
+}
+
+
+# tSave callable function.
+tSv() {
+  if [ -z "$1" ]; then
+    tA_too_few_arguments
+  elif [ -f "$1" ] || [ -d "$1" ]; then
+    if [ -z "$2" ]; then
+      if [ -d "$1" ]; then
+        rsync -ar --delete "$1/" "$1.save/"
+      elif [ -f "$1" ]; then
+        rsync -a --delete "$1" "$1.save"
+      else
+        tA_invalid_argument
+      fi
+    else
+      if [ -d "$1" ]; then
+        rsync -ar --delete "$1/" "$2.save/"
+      elif [ -f "$1" ]; then
+        rsync -a --delete "$1" "$2.save"
+      else
+        tA_invalid_argument
+      fi
+    fi
+  else
+    tA_invalid_argument
+  fi
 }
 
 
