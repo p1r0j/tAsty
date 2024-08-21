@@ -94,7 +94,7 @@ tCr_view_entries() {
 # Craft help info.
 tCr_help() {
   echo "$fEMPTY"
-  echo "$fTALK [${sBYELLOW}tCraft${sRESET}] Add, edit, remove, and view custom aliases."
+  echo "$fMARK [${sBYELLOW}tCraft${sRESET}] Add, edit, remove, and view custom aliases."
   echo "$fUSE  ${sHL}tCr${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tCr -a \"[command]\"${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tCr -v [target]${sRESET} (view contents of target alias)"

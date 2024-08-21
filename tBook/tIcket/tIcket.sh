@@ -98,7 +98,7 @@ tI_view_entries() {
 # Ticket help info.
 tI_help() {
   echo "$fEMPTY"
-  echo "$fTALK [${sBPINK}tIcket${sRESET}] Add, edit, remove, and view ${sBBLUE}cd${sRESET} aliases."
+  echo "$fMARK [${sBPINK}tIcket${sRESET}] Add, edit, remove, and view ${sBBLUE}cd${sRESET} aliases."
   echo "$fUSE  ${sHL}tI${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tI -a [path/to/target]${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tI -v [target]${sRESET} (view contents of target alias)"

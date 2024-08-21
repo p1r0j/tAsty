@@ -45,17 +45,17 @@ tCl_copy() {
 # tClip help info.
 tCl_help(){
   echo "$fEMPTY"
-  echo "$fTALK ${sBCYAN}tClip${sRESET} consists of two components:"
+  echo "$fMARK ${sBCYAN}tClip${sRESET} consists of two components:"
   echo "$fBODY  ${sBBLUE}tClip${sRESET} and ${sBBLUE}tPaste${sRESET}."
   echo "$fEMPTY"
-  echo "$fTALK [${sBBLUE}tClip${sRESET}] A clipboard for ${sBBLUE}bash${sRESET}."
+  echo "$fMARK [${sBBLUE}tClip${sRESET}] A clipboard for ${sBBLUE}bash${sRESET}."
   echo "$fUSE  ${sHL}tCl${sRESET} (view clipboard contents)"
   echo "$fBODY  ${sHL}tCl [#-#]${sRESET} (replace clipboard with selection)"
   echo "$fOPT  ${sHL}tCl -a [#-#]${sRESET} (append clipboard with selection)"
   echo "$fBODY  ${sHL}tCl -e${sRESET} (open clipboard for editing)"
   echo "$fBODY  ${sHL}tCl --shred${sRESET} (clear clipboard)"
   echo "$fEMPTY"
-  echo "$fTALK [${sBBLUE}tPaste${sRESET}] Paste clipboard contents to target."
+  echo "$fMARK [${sBBLUE}tPaste${sRESET}] Paste clipboard contents to target."
   echo "$fUSE  ${sHL}tPa [target]${sRESET} (append clipboard to target)"
   echo "$fOPT  ${sHL}tPa -r [target]${sRESET} (replace target with clipboard)"
 }

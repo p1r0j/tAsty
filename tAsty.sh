@@ -49,7 +49,7 @@ sRESET=$(tput sgr0)
 # Faces.
 fINPUT="(${sBPINK}~[ ]~${sRESET})"
 fNEUTRAL="[${sBCYAN}~'_'~${sRESET}]" # wHiskey
-fTALK="[${sBCYAN}~>o<~${sRESET}]"
+fMARK="[${sBCYAN}~>>>~${sRESET}]"
 fHAPPY="[${sBCYAN}~'w'~${sRESET}]"
 fSIGH="[${sBCYAN}~-.-~${sRESET}]"
 fMONOCLE="[${sBCYAN}~p_-~${sRESET}]"
@@ -101,10 +101,10 @@ fi
 # Setup info.
 if [ "$1" = "--setup" ]; then
   echo "$fEMPTY"
-  echo "$fTALK Welcome, ${sBCYAN}tRaveller${sRESET}."
+  echo "$fMARK Welcome, ${sBCYAN}tRaveller${sRESET}."
   echo "$fBODY  Setting up tAsty is easy."
   echo "$fEMPTY"
-  echo "$fTALK Simply paste the following line"
+  echo "$fMARK Simply paste the following line"
   echo "$fBODY  to your ${sHL}~/.bashrc${sRESET} file:"
   echo "$fEMPTY"
   echo "$fOUTPUT ${sHL}source \"$sA\"${sRESET}"
@@ -114,7 +114,7 @@ if [ "$1" = "--setup" ]; then
   echo "$fBODY  (${sHL}source ~/.bashrc${sRESET})"
   echo "$fBODY  and tAsty should now be working."
   echo "$fEMPTY"
-  echo "$fTALK Try running the command ${sHL}tA -h${sRESET}"
+  echo "$fMARK Try running the command ${sHL}tA -h${sRESET}"
   echo "$fBODY  to get started if this is your first time,"
   echo "$fBODY  or if you need a refresher."
 fi
@@ -145,10 +145,10 @@ tA_donate() {
 # tAsty help info.
 tA_help() {
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tAsty${sRESET}] An extension for your ${sHL}~/.bashrc${sRESET} file."
+  echo "$fMARK [${sBCYAN}tAsty${sRESET}] An extension for your ${sHL}~/.bashrc${sRESET} file."
   echo "$fOPT  ${sHL}tA -d${sRESET} (open donations link)"
   echo "$fEMPTY"
-  echo "$fTALK ${sBCYAN}tAsty${sRESET} consists of the following modules:"
+  echo "$fMARK ${sBCYAN}tAsty${sRESET} consists of the following modules:"
   echo "$fBODY  ${sBBLUE}tBook${sRESET}, ${sBBLUE}tRaveller${sRESET}, ${sBBLUE}tFile${sRESET},"
   echo "$fBODY  ${sBBLUE}tRash${sRESET}, ${sBBLUE}tPocket${sRESET}, ${sBBLUE}tClip${sRESET},"
   echo "$fBODY  and ${sBBLUE}tNote${sRESET}."

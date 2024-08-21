@@ -120,10 +120,10 @@ tRv_greeting() {
 # Navigate help info.
 tRv_help() {
   echo "$fEMPTY"
-  echo "$fTALK ${sBBLUE}tRaveller${sRESET} is a collection of navigational tools,"
+  echo "$fMARK [${sBCYAN}tRaveller${sRESET}] A collection of navigational tools,"
   echo "$fBODY  consisting of the following:"
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tView${sRESET}] View contents of files/directories."
+  echo "$fMARK [${sBCYAN}tView${sRESET}] View contents of files/directories."
   echo "$fUSE  ${sHL}tV${sRESET} (view current working directory)"
   echo "$fBODY  ${sHL}tV [target]${sRESET} (view target file/directory)"
   echo "$fOPT  ${sHL}tV -a${sRESET} (view hidden files/directories)"
@@ -132,10 +132,10 @@ tRv_help() {
   echo "$fBODY  of ${sBBLUE}tView${sRESET}'s output are for use"
   echo "$fBODY  with ${sBBLUE}tSelect${sRESET} and ${sBBLUE}tClip${sRESET}."
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tSearch${sRESET}] Search current working directory for keyword/phrase."
+  echo "$fMARK [${sBCYAN}tSearch${sRESET}] Search current working directory for keyword/phrase."
   echo "$fUSE  ${sHL}tSr \"[search phrase]\"${sRESET}"
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tFilter${sRESET}] Filter results of piped command via keyword/line number."
+  echo "$fMARK [${sBCYAN}tFilter${sRESET}] Filter results of piped command via keyword/line number."
   echo "$fUSE  ${sHL}tF -[option] \"[keyword or number range (#-#)]\"${sRESET}"
   echo "$fOPT  ${sHL}tF -k${sRESET} (filter by keyword/phrase)"
   echo "$fBODY  ${sHL}tF -l${sRESET} (filter by line number)"
@@ -148,18 +148,18 @@ tRv_help() {
   echo "$fEMPTY"
   echo "$fEXMPL ${sHL}tV work.note | tF -l \"4-20\"${sRESET}"
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tNav${sRESET}] Navigate your file system."
+  echo "$fMARK [${sBCYAN}tNav${sRESET}] Navigate your file system."
   echo "$fUSE  ${sHL}tN${sRESET} (navigate to home directory)"
   echo "$fBODY  ${sHL}tN [target]${sRESET} (navigate to target directory)"
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tUp${sRESET}] Move up specified number of directories."
+  echo "$fMARK [${sBCYAN}tUp${sRESET}] Move up specified number of directories."
   echo "$fUSE  ${sHL}tU${sRESET} (move up single directory)"
   echo "$fBODY  ${sHL}tU [#]${sRESET} (move up specified number of directories)"
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tBack${sRESET}] Move back to previous working directory."
+  echo "$fMARK [${sBCYAN}tBack${sRESET}] Move back to previous working directory."
   echo "$fUSE  ${sHL}tB${sRESET}"
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tFresh${sRESET}] Quickly source your ${sHL}~/.bashrc${sRESET} file."
+  echo "$fMARK [${sBCYAN}tFresh${sRESET}] Quickly source your ${sHL}~/.bashrc${sRESET} file."
   echo "$fUSE  ${sHL}tFs${sRESET}"
   echo "$fEMPTY"
   echo "$fTIP Use this shortcut after making changes to your ${sBBLUE}tBook${sRESET}"
@@ -171,7 +171,7 @@ tRv_help() {
 # tFresh callable function.
 tFs() {
   echo "$fEMPTY"
-  echo "$fTALK ${sGREEN}Feelin' fresh${sRESET}."
+  echo "$fMARK ${sGREEN}Feelin' fresh${sRESET}."
   source ~/.bashrc
 }
 
@@ -256,7 +256,7 @@ tSr() {
         if [[ "$line" =~ $searchPhrase ]]; then
           if [ "$file" != "$currentFile" ]; then
             echo "$fEMPTY"
-            echo "$fOK ${sHL}$file${sRESET}"
+            echo "$fMARK ${sHL}$file${sRESET}"
             currentFile="$file"
           fi
           if [ $(echo -n "$lineNumber" | wc -c) -eq 1 ]; then
