@@ -11,6 +11,7 @@ alias tCopy="tC"
 alias tDelete="tD"
 alias tWrite="tW"
 alias tEdit="tE"
+alias tReplace="tRp"
 
 
 # tFile help info.
@@ -46,6 +47,57 @@ tFe_help() {
   echo "$fTIP ${sBBLUE}tEdit${sRESET} uses your preferred ${sBBLUE}EDITOR${sRESET}"
   echo "$fBODY  (generally defined in your ${sHL}~/.bashrc${sRESET} file)."
   echo "$fBODY  Otherwise, it will default to ${sBBLUE}vim${sRESET}."
+  echo "$fEMPTY"
+  echo "$fNEUTRAL [${sBCYAN}tReplace${sRESET}] Replace specified strings in a target file."
+  echo "$fUSE  ${sHL}tRp [target] \"[search phrase]\" \"[replacement phrase]\"${sRESET}"
+  echo "$fEMPTY"
+  echo "$fTIP ${sBBLUE}tReplace${sRESET} will ignore lines containing the safeword,"
+  echo "$fBODY  ${sHL}wHiskey${sRESET} (caps sensitive)."
+}
+
+
+# tReplace callable function.
+tRp() {
+  if [ -z "$3" ]; then
+    tA_too_few_arguments
+  elif [ -f "$1" ]; then
+    lineNumber=0
+    tempFile="$1.temp"
+    while IFS= read -r line; do
+      ((lineNumber++))
+      originalLine="$line"
+      safeword="False"
+      if [[ $line = *"wHiskey"* ]]; then
+        safeword="True"
+      fi
+      if [ "$safeword" = "False" ]; then
+        line="${line//"$2"/"$3"}"
+      else
+        if [ $(echo -n "$lineNumber" | wc -c) -eq 1 ]; then
+          choice="  $lineNumber"
+        elif [ $(echo -n "$lineNumber" | wc -c) -eq 2 ]; then
+          choice=" $lineNumber"
+        else
+          choice="$lineNumber"
+        fi
+        echo " |${sCYAN}$choice${sRESET}|  ${sBBLUE}Safeword${sRESET} identified. Skipping..."
+      fi
+      if [ "$line" != "$originalLine" ]; then
+        if [ $(echo -n "$lineNumber" | wc -c) -eq 1 ]; then
+          choice="  $lineNumber"
+        elif [ $(echo -n "$lineNumber" | wc -c) -eq 2 ]; then
+          choice=" $lineNumber"
+        else
+          choice="$lineNumber"
+        fi
+        echo " |${sCYAN}$choice${sRESET}|  ${sHL}$line${sRESET}"
+      fi
+      echo "$line" >> "$tempFile"
+    done < "$1"
+    mv "$tempFile" "$1"
+  else
+    tA_invalid_argument
+  fi
 }
 
 
