@@ -15,7 +15,7 @@ alias tDelete="tD"
 alias tSave="tSv"
 alias tLoad="tL"
 alias tLock="tLc"
-alias tUnlock="tU"
+alias tUnlock="tUn"
 alias tWrite="tW"
 alias tEdit="tE"
 alias tReplace="tRp"
@@ -57,8 +57,8 @@ tFe_help() {
   echo "$fOPT  ${sHL}tLc -d [target]${sRESET} (lock target and delete original)"
   echo "$fEMPTY"
   echo "$fMARK [${sBCYAN}tUnlock${sRESET}] Unlock targets locked with ${sBBLUE}tLock${sRESET}."
-  echo "$fUSE  ${sHL}tU [target]${sRESET} (unlock target and retain original)"
-  echo "$fOPT  ${sHL}tU -d [target]${sRESET} (unlock target and delete original)"
+  echo "$fUSE  ${sHL}tUn [target]${sRESET} (unlock target and retain original)"
+  echo "$fOPT  ${sHL}tUn -d [target]${sRESET} (unlock target and delete original)"
   echo "$fEMPTY"
   echo "$fTIP When targeting a locked file with ${sBBLUE}tUnlock${sRESET},"
   echo "$fBODY  do not include the \".lock\" portion of the filename."
@@ -169,7 +169,7 @@ tW() {
 
 
 # tUnlock callable function.
-tU() {
+tUn() {
   if [ -z "$1" ]; then
     tA_too_few_arguments
   elif [ "$1" = "--delete" ] || [ "$1" = "-d" ]; then
