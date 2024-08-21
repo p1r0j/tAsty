@@ -92,7 +92,7 @@ tBo_validate_name() {
 # Book help info.
 tBo_help() {
   echo "$fEMPTY"
-  echo "$fTALK [${sBCYAN}tBook${sRESET}] View, edit, and remove custom aliases using"
+  echo "$fMARK [${sBCYAN}tBook${sRESET}] View, edit, and remove custom aliases using"
   echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}."
   echo "$fUSE  ${sHL}tBo${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tBo -v [target]${sRESET} (view contents of target alias)"
