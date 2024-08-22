@@ -468,7 +468,7 @@ tS() {
   if [ ! -f "$cVLS" ]; then
     echo "$fBLANK"
     echo "$fERROR ${sBBLUE}tView${sRESET} cache is empty."
-  elif [ -z "$1" ]; then
+  elif [ -z "$2" ]; then
     tA_too_few_arguments
   else
     while (( $# > 0 )); do
@@ -501,18 +501,22 @@ tS() {
       done < "$cVLS"
       shift
     done
-    if [ "$mFlag" = true ]; then
-      tS_move
-    elif [ "$cFlag" = true ]; then
-      tS_copy
-    elif [ "$rFlag" = true ]; then
-      tS_rename
-    elif [ "$dFlag" = true ]; then
-      tS_delete
-    elif [ "$tFlag" = true ]; then
-      tS_toss
-    elif [ "$pFlag" = true ]; then
-      tS_pocket
+    if [ -f "$cS" ]; then
+      if [ "$mFlag" = true ]; then
+        tS_move
+      elif [ "$cFlag" = true ]; then
+        tS_copy
+      elif [ "$rFlag" = true ]; then
+        tS_rename
+      elif [ "$dFlag" = true ]; then
+        tS_delete
+      elif [ "$tFlag" = true ]; then
+        tS_toss
+      elif [ "$pFlag" = true ]; then
+        tS_pocket
+      fi
+    else
+      tA_invalid_argument
     fi
   fi
 }
