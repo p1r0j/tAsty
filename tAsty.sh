@@ -100,6 +100,8 @@ if [ -f "$mNO" ]; then
 fi
 # Setup info.
 if [ "$1" = "--setup" ]; then
+  rm "$eP/.gitkeep"
+  rm "$eR/.gitkeep"
   echo "$fEMPTY"
   echo "$fMARK Welcome, ${sBCYAN}tRaveller${sRESET}."
   echo "$fBODY  Setting up tAsty is easy."
