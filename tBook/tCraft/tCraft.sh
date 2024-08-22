@@ -52,14 +52,14 @@ tCr_shred_entries() {
 }
 
 
-# Remove craft entry.
-tCr_remove_entry() {
+# Delete craft entry.
+tCr_delete_entry() {
   if [ -z "$2" ]; then
     tA_too_few_arguments
   elif [ ! -f "$edCR/$2" ]; then
     echo "$fSERROR  No ${sBYELLOW}craft${sRESET} named ${sHL}$2${sRESET} found."
   else
-    echo "$fSOK  Removing ${sBYELLOW}$2${sRESET}..."
+    echo "$fSOK  Deleting ${sBYELLOW}$2${sRESET}..."
     rm "$edCR/$2"
   fi
 }
@@ -94,13 +94,13 @@ tCr_view_entries() {
 # Craft help info.
 tCr_help() {
   echo "$fEMPTY"
-  echo "$fMARK [${sBYELLOW}tCraft${sRESET}] Add, edit, remove, and view custom aliases."
+  echo "$fMARK [${sBYELLOW}tCraft${sRESET}] Add, edit, delete, and view custom aliases."
   echo "$fUSE  ${sHL}tCr${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tCr -a \"[command]\"${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tCr -v [target]${sRESET} (view contents of target alias)"
   echo "$fBODY  ${sHL}tLi -e [target]${sRESET} (open target alias for editing)"
-  echo "$fBODY  ${sHL}tCr -r [target]${sRESET} (remove target alias)"
-  echo "$fBODY  ${sHL}tCr --shred${sRESET} (remove all aliases)"
+  echo "$fBODY  ${sHL}tCr -d [target]${sRESET} (delete target alias)"
+  echo "$fBODY  ${sHL}tCr --shred${sRESET} (delete all aliases)"
   echo "$fEMPTY"
   echo "$fTIP ${sBYELLOW}tCraft${sRESET} allows you to create an alias from any command,"
   echo "$fBODY  extending ${sBCYAN}tAsty${sRESET}'s functionality"
@@ -126,8 +126,8 @@ tCr() {
     tCr_add_entry "$@"
   elif [ "$1" = "--edit" ] || [ "$1" = "-e" ]; then
     tCr_edit_entry "$@"
-  elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
-    tCr_remove_entry "$@"
+  elif [ "$1" = "--delete" ] || [ "$1" = "-d" ]; then
+    tCr_delete_entry "$@"
   elif [ "$1" = "--shred" ]; then
     tCr_shred_entries
   else

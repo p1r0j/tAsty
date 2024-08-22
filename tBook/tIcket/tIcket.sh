@@ -56,14 +56,14 @@ tI_shred_entries() {
 }
 
 
-# Remove ticket entry.
-tI_remove_entry() {
+# Delete ticket entry.
+tI_delete_entry() {
   if [ -z "$2" ]; then
     tA_too_few_arguments
   elif [ ! -f "$edI/$2" ]; then
     echo "$fSERROR  No ${sBPINK}ticket${sRESET} named ${sHL}$2${sRESET} found."
   else
-    echo "$fSOK  Removing ${sBPINK}$2${sRESET}..."
+    echo "$fSOK  Deleting ${sBPINK}$2${sRESET}..."
     rm "$edI/$2"
   fi
 }
@@ -98,13 +98,13 @@ tI_view_entries() {
 # Ticket help info.
 tI_help() {
   echo "$fEMPTY"
-  echo "$fMARK [${sBPINK}tIcket${sRESET}] Add, edit, remove, and view ${sBBLUE}cd${sRESET} aliases."
+  echo "$fMARK [${sBPINK}tIcket${sRESET}] Add, edit, delete, and view ${sBBLUE}cd${sRESET} aliases."
   echo "$fUSE  ${sHL}tI${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tI -a [path/to/target]${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tI -v [target]${sRESET} (view contents of target alias)"
   echo "$fBODY  ${sHL}tI -e [target]${sRESET} (open target alias for editing)"
-  echo "$fBODY  ${sHL}tI -r [target]${sRESET} (remove target alias)"
-  echo "$fBODY  ${sHL}tI --shred${sRESET} (remove all aliases)"
+  echo "$fBODY  ${sHL}tI -d [target]${sRESET} (delete target alias)"
+  echo "$fBODY  ${sHL}tI --shred${sRESET} (delete all aliases)"
   echo "$fEMPTY"
   echo "$fTIP ${sBPINK}tIckets${sRESET} are like bookmarks,"
   echo "$fBODY  used to quickly travel to frequented"
@@ -130,8 +130,8 @@ tI() {
     tI_add_entry "$@"
   elif [ "$1" = "--edit" ] || [ "$1" = "-e" ]; then
     tI_edit_entry "$@"
-  elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
-    tI_remove_entry "$@"
+  elif [ "$1" = "--delete" ] || [ "$1" = "-d" ]; then
+    tI_delete_entry "$@"
   elif [ "$1" = "--shred" ]; then
     tI_shred_entries
   else

@@ -36,8 +36,8 @@ tBo_shred_entries() {
 }
 
 
-# Remove target entry.
-tBo_remove() {
+# Delete target entry.
+tBo_delete() {
   tI "$@"
   tLi "$@"
   tCr "$@"
@@ -92,13 +92,13 @@ tBo_validate_name() {
 # Book help info.
 tBo_help() {
   echo "$fEMPTY"
-  echo "$fMARK [${sBCYAN}tBook${sRESET}] View, edit, and remove custom aliases using"
+  echo "$fMARK [${sBCYAN}tBook${sRESET}] View, edit, and delete custom aliases using"
   echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}."
   echo "$fUSE  ${sHL}tBo${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tBo -v [target]${sRESET} (view contents of target alias)"
   echo "$fBODY  ${sHL}tBo -e [target]${sRESET} (open target alias for editing)"
-  echo "$fBODY  ${sHL}tBo -r [target]${sRESET} (remove target alias)"
-  echo "$fBODY  ${sHL}tBo --shred${sRESET} (remove all aliases)"
+  echo "$fBODY  ${sHL}tBo -d [target]${sRESET} (delete target alias)"
+  echo "$fBODY  ${sHL}tBo --shred${sRESET} (delete all aliases)"
   echo "$fEMPTY"
   echo "$fTIP See help info for"
   echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}"
@@ -118,11 +118,11 @@ tBo() {
     else
       tBo_edit "$@"
     fi
-  elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
+  elif [ "$1" = "--delete" ] || [ "$1" = "-d" ]; then
     if [ -z "$2" ]; then
       tA_too_few_arguments
     else
-      tBo_remove "$@"
+      tBo_delete "$@"
     fi
   elif [ "$1" = "--shred" ]; then
     tBo_shred_entries

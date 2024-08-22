@@ -55,14 +55,14 @@ tLi_shred_entries() {
 }
 
 
-# Remove link entry.
-tLi_remove_entry() {
+# Delete link entry.
+tLi_delete_entry() {
   if [ -z "$2" ]; then
     tA_too_few_arguments
   elif [ ! -f "$edLI/$2" ]; then
     echo "$fSERROR  No ${sBGREEN}link${sRESET} named ${sHL}$2${sRESET} found."
   else
-    echo "$fSOK  Removing ${sBGREEN}$2${sRESET}..."
+    echo "$fSOK  Deleting ${sBGREEN}$2${sRESET}..."
     rm "$edLI/$2"
   fi
 }
@@ -97,13 +97,13 @@ tLi_view_entries() {
 # Link help info.
 tLi_help() {
   echo "$fEMPTY"
-  echo "$fMARK [${sBGREEN}tLink${sRESET}] Add, edit, remove, and view ${sBBLUE}unison${sRESET} aliases."
+  echo "$fMARK [${sBGREEN}tLink${sRESET}] Add, edit, delete, and view ${sBBLUE}unison${sRESET} aliases."
   echo "$fUSE  ${sHL}tLi${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tLi -a [target1] [target2]${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tLi -v [target]${sRESET} (view contents of target alias)"
   echo "$fBODY  ${sHL}tLi -e [target]${sRESET} (open target alias for editing)"
-  echo "$fBODY  ${sHL}tLi -r [target]${sRESET} (remove target alias)"
-  echo "$fBODY  ${sHL}tLi --shred${sRESET} (remove all aliases)"
+  echo "$fBODY  ${sHL}tLi -d [target]${sRESET} (delete target alias)"
+  echo "$fBODY  ${sHL}tLi --shred${sRESET} (delete all aliases)"
   echo "$fEMPTY"
   echo "$fTIP ${sBGREEN}tLinks${sRESET} sync two targets bidirectionally using ${sBBLUE}unison${sRESET}."
   echo "$fBODY  This is especially useful for linking"
@@ -136,8 +136,8 @@ tLi() {
     tLi_add_entry "$@"
   elif [ "$1" = "--edit" ] || [ "$1" = "-e" ]; then
     tLi_edit_entry "$@"
-  elif [ "$1" = "--remove" ] || [ "$1" = "-r" ]; then
-    tLi_remove_entry "$@"
+  elif [ "$1" = "--delete" ] || [ "$1" = "-d" ]; then
+    tLi_delete_entry "$@"
   elif [ "$1" = "--shred" ]; then
     tLi_shred_entries
   else
