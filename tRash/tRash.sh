@@ -14,8 +14,10 @@ alias tRash="tR"
 
 # tRash shred function.
 tR_shred() {
-  for target in "$eR"/*; do
-    rm -rf $target
+  for target in "$eR"/{.,}*; do
+    if [ "$(basename "$target")" != ".gitkeep" ]; then
+      rm -rf $target
+    fi
   done
   rm "$cR"
   touch "$cR"
@@ -72,7 +74,7 @@ tR_help() {
 # Callable function.
 tR() {
   if [ -z "$1" ]; then
-    tV "$eR"
+    tV -a "$eR"
   elif [ -f "$1" ] || [ -d "$1" ] ; then
     tR_toss "$@"
   elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then

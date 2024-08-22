@@ -12,8 +12,10 @@ alias tPocket="tP"
 
 # Shred pocket.
 tP_shred() {
-  for target in "$eP"/*; do
-    rm -rf $target
+  for target in "$eP"/{.,}*; do
+    if [ "$(basename "$target")" != ".gitkeep" ]; then
+      rm -rf $target
+    fi
   done
 }
 
@@ -33,7 +35,7 @@ tP_help() {
 # Callable function.
 tP() {
   if [ -z "$1" ]; then
-    tV "$eP"
+    tV -a "$eP"
   elif [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     tP_help
   elif [ "$1" = "--copy" ] || [ "$1" = "-c" ]; then
