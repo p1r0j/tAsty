@@ -3,6 +3,7 @@ tBook/tIcket/Tickets/t*
 tBook/tLink/Links/t*
 tBook/tCraft/Crafts/t*
 tClip/Clipboard/clip.cache
+tFile/tSelect/select.cache
 tPocket/Pocket/*
 !tPocket/Pocket/.gitkeep
 tRaveller/tBack/cache

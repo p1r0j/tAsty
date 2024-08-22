@@ -49,6 +49,19 @@ tS_delete() {
 }
 
 
+# tSelect rename function.
+tS_rename() {
+  counter=0
+  echo "$fEMPTY"
+  read -p "$fINPUT Choose a name: #." name
+  while IFS= read -r target; do
+    ((counter++))
+    targetDir="$(dirname "$target")"
+    tM "-f" "$target" "$targetDir/$counter.$name"
+  done < "$cS"
+}
+
+
 # tSelect copy function.
 tS_copy() {
   echo "$fEMPTY"
@@ -82,6 +95,7 @@ tFe_help() {
   echo "$fBODY  ${sHL}tS -[option] [#-#] [#-#]${sRESET} (modify multiple ranges)"
   echo "$fOPT  ${sHL}tS -m [#-#]${sRESET} (move selection)"
   echo "$fBODY  ${sHL}tS -c [#-#]${sRESET} (copy selection)"
+  echo "$fBODY  ${sHL}tS -r [#-#]${sRESET} (rename selection)"
   echo "$fBODY  ${sHL}tS -d [#-#]${sRESET} (delete selection)"
   echo "$fBODY  ${sHL}tS -t [#-#]${sRESET} (toss selection)"
   echo "$fBODY  ${sHL}tS -p [#-#]${sRESET} (pocket selection)"
@@ -443,17 +457,17 @@ tMa() {
 tS() {
   mFlag=false
   cFlag=false
+  rFlag=false
   dFlag=false
   tFlag=false
   pFlag=false
-  pcFlag=false
   modeChanged=false
   if [ -f "$cS" ]; then
     rm "$cS"
   fi
   if [ ! -f "$cVLS" ]; then
     echo "$fBLANK"
-    echo "$fERROR ${sBBLUE}tSelect${sRESET} cache is empty."
+    echo "$fERROR ${sBBLUE}tView${sRESET} cache is empty."
   elif [ -z "$1" ]; then
     tA_too_few_arguments
   else
@@ -465,6 +479,9 @@ tS() {
         elif [ "$1" = "-c" ] && [ "$modeChanged" = false ]; then
           cFlag=true
           modeChanged=true
+        elif [ "$1" = "-r" ] && [ "$modeChanged" = false ]; then
+          rFlag=true
+          modeChanged=true
         elif [ "$1" = "-d" ] && [ "$modeChanged" = false ]; then
           dFlag=true
           modeChanged=true
@@ -473,9 +490,6 @@ tS() {
           modeChanged=true
         elif [ "$1" = "-p" ] && [ "$modeChanged" = false ]; then
           pFlag=true
-          modeChanged=true
-        elif [ "$1" = "-pc" ] && [ "$modeChanged" = false ]; then
-          pcFlag=true
           modeChanged=true
         fi
         number=$(cut -d ':' -f 1 <<< "$line")
@@ -491,6 +505,8 @@ tS() {
       tS_move
     elif [ "$cFlag" = true ]; then
       tS_copy
+    elif [ "$rFlag" = true ]; then
+      tS_rename
     elif [ "$dFlag" = true ]; then
       tS_delete
     elif [ "$tFlag" = true ]; then
