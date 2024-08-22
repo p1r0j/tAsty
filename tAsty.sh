@@ -151,6 +151,7 @@ tA_help() {
   echo "$fEMPTY"
   echo "$fMARK [${sBCYAN}tAsty${sRESET}] An extension for your \"~/.bashrc\" file."
   echo "$fOPT  ${sHL}tA -d${sRESET} (open donations link)"
+  echo "$fBODY  ${sHL}tA --version${sRESET} (view version number)"
   echo "$fEMPTY"
   echo "$fMARK ${sBCYAN}tAsty${sRESET} consists of the following modules:"
   echo "$fBODY  ${sBBLUE}tBook${sRESET}, ${sBBLUE}tRaveller${sRESET}, ${sBBLUE}tFile${sRESET},"
