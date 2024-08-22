@@ -43,7 +43,7 @@ sBCYAN=$(tput bold; tput setaf 6)
 sCYAN=$(tput setaf 6)
 sBWHITE=$(tput bold; tput setaf 7)
 sWHITE=$(tput setaf 7)
-sHL=$(tput bold; tput setaf 0; tput setab 3)
+sHL=$(tput bold; tput setaf 0; tput setab 7)
 sBOLD=$(tput bold)
 sRESET=$(tput sgr0)
 # Faces.
