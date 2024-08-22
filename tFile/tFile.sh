@@ -34,6 +34,14 @@ tS_pocket() {
 }
 
 
+# tSelect toss function.
+tS_toss() {
+  while IFS= read -r target; do
+    tR "$target"
+  done < "$cS"
+}
+
+
 # tSelect delete function.
 tS_delete() {
   echo "$fEMPTY"
