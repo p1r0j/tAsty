@@ -26,6 +26,21 @@ alias tEdit="tE"
 alias tReplace="tRp"
 
 
+# tSelect delete function.
+tS_delete() {
+  echo "$fEMPTY"
+  read -p "$fINPUT Are you sure? (y/N) " answer
+  answer=${answer,,}
+  if [ "$answer" = "yes" ] || [ "$answer" = "y" ]; then
+    while IFS= read -r target; do
+      rm -rf "$target"
+    done < "$cS"
+  else
+    echo "$fSERROR  Cancelling..."
+  fi
+}
+
+
 # tSelect pocket function.
 tS_pocket() {
   while IFS= read -r target; do
@@ -39,21 +54,6 @@ tS_toss() {
   while IFS= read -r target; do
     tR "$target"
   done < "$cS"
-}
-
-
-# tSelect delete function.
-tS_delete() {
-  echo "$fEMPTY"
-  read -p "$fINPUT Are you sure? (y/N) " answer
-  answer=${answer,,}
-  if [ "$answer" = "yes" ] || [ "$answer" = "y" ]; then
-    while IFS= read -r target; do
-      rm -rf "$target"
-    done < "$cS"
-  else
-    echo "$fSERROR  Cancelling..."
-  fi
 }
 
 
@@ -104,9 +104,9 @@ tFe_help() {
   echo "$fOPT  ${sHL}tS -m [#-#]${sRESET} (move selection)"
   echo "$fBODY  ${sHL}tS -c [#-#]${sRESET} (copy selection)"
   echo "$fBODY  ${sHL}tS -r [#-#]${sRESET} (rename selection)"
-  echo "$fBODY  ${sHL}tS -d [#-#]${sRESET} (delete selection)"
   echo "$fBODY  ${sHL}tS -t [#-#]${sRESET} (toss selection)"
   echo "$fBODY  ${sHL}tS -p [#-#]${sRESET} (pocket selection)"
+  echo "$fBODY  ${sHL}tS -d [#-#]${sRESET} (delete selection)"
   echo "$fEMPTY"
   echo "$fMARK [${sBCYAN}tMake${sRESET}] Create new file/directory."
   echo "$fUSE  ${sHL}tMa -[option] [name]${sRESET}"
@@ -490,14 +490,14 @@ tS() {
         elif [ "$1" = "-r" ] && [ "$modeChanged" = false ]; then
           rFlag=true
           modeChanged=true
-        elif [ "$1" = "-d" ] && [ "$modeChanged" = false ]; then
-          dFlag=true
-          modeChanged=true
         elif [ "$1" = "-t" ] && [ "$modeChanged" = false ]; then
           tFlag=true
           modeChanged=true
         elif [ "$1" = "-p" ] && [ "$modeChanged" = false ]; then
           pFlag=true
+          modeChanged=true
+        elif [ "$1" = "-d" ] && [ "$modeChanged" = false ]; then
+          dFlag=true
           modeChanged=true
         fi
         number=$(cut -d ':' -f 1 <<< "$line")
