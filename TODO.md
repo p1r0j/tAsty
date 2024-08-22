@@ -6,8 +6,8 @@ The Alias Supplement ThingY
 
 - [ ] Add screenshots to README.
 
-- [ ] Add tNote.
-
 ## Completed
 
 - [x] Add error handling to tSelect for too few arguments.
+
+- [x] Add tNote.

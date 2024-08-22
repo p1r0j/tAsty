@@ -4,6 +4,8 @@ tBook/tLink/Links/t*
 tBook/tCraft/Crafts/t*
 tClip/Clipboard/clip.cache
 tFile/tSelect/select.cache
+tNote/Notes/*
+!tNote/Notes/.gitkeep
 tPocket/Pocket/*
 !tPocket/Pocket/.gitkeep
 tRaveller/tBack/cache

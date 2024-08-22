@@ -55,6 +55,8 @@ tCl_help(){
   echo "$fMARK [${sBCYAN}tPaste${sRESET}] Paste clipboard contents to target."
   echo "$fUSE  ${sHL}tPa [target]${sRESET} (append clipboard to target)"
   echo "$fOPT  ${sHL}tPa -r [target]${sRESET} (replace target with clipboard)"
+  echo "$fBODY  ${sHL}tPa -n${sRESET} (append clipboard to default note)"
+  echo "$fBODY  ${sHL}tPa -n [target]${sRESET} (append clipboard to specified note)"
   echo "$fEMPTY"
   echo "$fTIP When using the ${sBBLUE}replace${sRESET} (-r) option,"
   echo "$fBODY  ${sBBLUE}tPaste${sRESET} will create a new file"
@@ -69,6 +71,12 @@ tPa() {
       tA_too_few_arguments
     elif [ "$1" = "--replace" ] || [ "$1" = "-r" ]; then
       cat "$cCL" > "$2"
+    elif [ "$1" = "--note" ] || [ "$1" = "-n" ]; then
+      if [ -z "$2" ]; then
+        cat "$cCL" >> "$eNO/t.note"
+      else
+        cat "$cCL" >> "$eNO/$2.note"
+      fi
     else
       if [ -f "$1" ]; then
         cat "$cCL" >> "$1"
