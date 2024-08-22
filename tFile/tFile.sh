@@ -26,6 +26,40 @@ alias tEdit="tE"
 alias tReplace="tRp"
 
 
+# tSelect pocket function.
+tS_pocket() {
+  while IFS= read -r target; do
+    tP "$target"
+  done < "$cS"
+}
+
+
+# tSelect delete function.
+tS_delete() {
+  echo "$fEMPTY"
+  read -p "$fINPUT Are you sure? (y/N) " answer
+  answer=${answer,,}
+  if [ "$answer" = "yes" ] || [ "$answer" = "y" ]; then
+    while IFS= read -r target; do
+      rm -rf "$target"
+    done < "$cS"
+  else
+    echo "$fSERROR  Cancelling..."
+  fi
+}
+
+
+# tSelect copy function.
+tS_copy() {
+  echo "$fEMPTY"
+  read -p "$fINPUT Choose a destination: " destination
+  destination="${destination/#\~/$HOME}"
+  while IFS= read -r target; do
+    tC "-f" "$target" "$destination"
+  done < "$cS"
+}
+
+
 # tSelect move function.
 tS_move() {
   echo "$fEMPTY"
@@ -42,6 +76,15 @@ tFe_help() {
   echo "$fEMPTY"
   echo "$fMARK [${sBCYAN}tFile${sRESET}] A collection of file management tools,"
   echo "$fBODY  consisting of the following:"
+  echo "$fEMPTY"
+  echo "$fMARK [${sBCYAN}tSelect${sRESET}] Modify selection of files/directories."
+  echo "$fUSE  ${sHL}tS -[option] [#-#]${sRESET} (modify single range)"
+  echo "$fBODY  ${sHL}tS -[option] [#-#] [#-#]${sRESET} (modify multiple ranges)"
+  echo "$fOPT  ${sHL}tS -m [#-#]${sRESET} (move selection)"
+  echo "$fBODY  ${sHL}tS -c [#-#]${sRESET} (copy selection)"
+  echo "$fBODY  ${sHL}tS -d [#-#]${sRESET} (delete selection)"
+  echo "$fBODY  ${sHL}tS -t [#-#]${sRESET} (toss selection)"
+  echo "$fBODY  ${sHL}tS -p [#-#]${sRESET} (pocket selection)"
   echo "$fEMPTY"
   echo "$fMARK [${sBCYAN}tMake${sRESET}] Create new file/directory."
   echo "$fUSE  ${sHL}tMa -[option] [name]${sRESET}"
