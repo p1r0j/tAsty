@@ -22,7 +22,7 @@
 
 *   ***tClip***. **tAsty** also includes its own clipboard. Use **tClip** to quickly copy and append the contents of files viewed with **tView** (see ***tRaveller*** above). Additionally, clear the contents, paste to **tNote** (see ***tNote*** next), or open up your **tClip** for editing with a single command.
 
-*   ***tNote***. A simple notepad for convenient note-taking in **bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, often found in your `~/.bashrc` file). Can also be saved, loaded, or cleared with a single command.
+*   ***tNote***. Convenient note-taking in **bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, often found in your `~/.bashrc` file). A single command to view and manage all your notes, all in one place.
 
 ## Installation
 
