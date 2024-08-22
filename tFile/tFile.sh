@@ -4,10 +4,15 @@
 # for The Alias Supplement ThingY,
 # tAsty.
 
+# Component directories.
+dS="$dFE/tSelect"
+# Components.
+cS="$dS/select.cache"
 # Switches.
 unlockMode="File"
 # Aliases.
 alias tFile="tFe"
+alias tSelect="tS"
 alias tMake="tMa"
 alias tMove="tM"
 alias tCopy="tC"
@@ -19,6 +24,17 @@ alias tUnlock="tUn"
 alias tWrite="tW"
 alias tEdit="tE"
 alias tReplace="tRp"
+
+
+# tSelect move function.
+tS_move() {
+  echo "$fEMPTY"
+  read -p "$fINPUT Choose a destination: " destination
+  destination="${destination/#\~/$HOME}"
+  while IFS= read -r target; do
+    tM "-f" "$target" "$destination"
+  done < "$cS"
+}
 
 
 # tFile help info.
@@ -376,6 +392,69 @@ tMa() {
     fi
   else
     tA_invalid_argument
+  fi
+}
+
+
+# tSelect callable function.
+tS() {
+  mFlag=false
+  cFlag=false
+  dFlag=false
+  tFlag=false
+  pFlag=false
+  pcFlag=false
+  modeChanged=false
+  if [ -f "$cS" ]; then
+    rm "$cS"
+  fi
+  if [ ! -f "$cVLS" ]; then
+    echo "$fBLANK"
+    echo "$fERROR ${sBBLUE}tSelect${sRESET} cache is empty."
+  elif [ -z "$1" ]; then
+    tA_too_few_arguments
+  else
+    while (( $# > 0 )); do
+      while IFS= read -r line; do
+        if [ "$1" = "-m" ] && [ "$modeChanged" = false ]; then
+          mFlag=true
+          modeChanged=true
+        elif [ "$1" = "-c" ] && [ "$modeChanged" = false ]; then
+          cFlag=true
+          modeChanged=true
+        elif [ "$1" = "-d" ] && [ "$modeChanged" = false ]; then
+          dFlag=true
+          modeChanged=true
+        elif [ "$1" = "-t" ] && [ "$modeChanged" = false ]; then
+          tFlag=true
+          modeChanged=true
+        elif [ "$1" = "-p" ] && [ "$modeChanged" = false ]; then
+          pFlag=true
+          modeChanged=true
+        elif [ "$1" = "-pc" ] && [ "$modeChanged" = false ]; then
+          pcFlag=true
+          modeChanged=true
+        fi
+        number=$(cut -d ':' -f 1 <<< "$line")
+        path=$(cut -d ':' -f 2- <<< "$line")
+        fullPath=$(realpath -q "$path")
+        if [[ "$number" = "$1" || ( "$number" -ge "$(echo "$1" | cut -d '-' -f 1)" && "$number" -le "$(echo "$1" | cut -d '-' -f 2)" ) ]]; then
+          echo "$fullPath" >> "$cS"
+        fi
+      done < "$cVLS"
+      shift
+    done
+    if [ "$mFlag" = true ]; then
+      tS_move
+    elif [ "$cFlag" = true ]; then
+      tS_copy
+    elif [ "$dFlag" = true ]; then
+      tS_delete
+    elif [ "$tFlag" = true ]; then
+      tS_toss
+    elif [ "$pFlag" = true ]; then
+      tS_pocket
+    fi
   fi
 }
 

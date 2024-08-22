@@ -81,15 +81,19 @@ tV_directory() {
   if [ "$tV_mode" = "Current" ]; then
     lsRaw=$(ls -hl --color=always --group-directories-first)
     lsTrim=$(echo "$lsRaw" | tail -n +2)
+    baseDir="."
   elif [ "$tV_mode" = "Target" ]; then
     lsRaw=$(ls -hl --color=always --group-directories-first "$1")
     lsTrim=$(echo "$lsRaw" | tail -n +2)
+    baseDir="$1"
   elif [ "$tV_mode" = "All Current" ]; then
     lsRaw=$(ls -ahl --color=always --group-directories-first)
     lsTrim=$(echo "$lsRaw" | tail -n +4)
+    baseDir="."
   elif [ "$tV_mode" = "All Target" ]; then
     lsRaw=$(ls -ahl --color=always --group-directories-first "$2")
     lsTrim=$(echo "$lsRaw" | tail -n +4)
+    baseDir="$2"
   fi
   for line in $lsTrim; do
     ((counter++))
@@ -102,7 +106,7 @@ tV_directory() {
     fi
     echo " |${sPINK}$choice${sRESET}|  $line"
     lsName=$(awk '{$1=$2=$3=$4=$5=$6=$7=$8=""; print $0}' <<< "$line" | sed 's/^[[:space:]]*//')
-    lsPath=$(realpath -q "$lsName")
+    lsPath=$(realpath -q "$baseDir/$lsName")
     cleanLine=$(echo -n "$lsPath" | sed 's/\x1B\[[0-9;]*[JKmsu]//g')
     echo "$counter:$cleanLine" >> "$cVLS"
   done
