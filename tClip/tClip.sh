@@ -58,6 +58,10 @@ tCl_help(){
   echo "$fMARK [${sBBLUE}tPaste${sRESET}] Paste clipboard contents to target."
   echo "$fUSE  ${sHL}tPa [target]${sRESET} (append clipboard to target)"
   echo "$fOPT  ${sHL}tPa -r [target]${sRESET} (replace target with clipboard)"
+  echo "$fEMPTY"
+  echo "$fTIP When using the ${sBBLUE}replace${sRESET} (-r) option,"
+  echo "$fBODY  ${sBBLUE}tPaste${sRESET} will create a new file"
+  echo "$fBODY  in the event that ${sBBLUE}target${sRESET} does not exist."
 }
 
 
