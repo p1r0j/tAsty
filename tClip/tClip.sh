@@ -48,7 +48,8 @@ tCl_help(){
   echo "$fMARK [${sBCYAN}tClip${sRESET}] A clipboard for ${sBBLUE}bash${sRESET}."
   echo "$fUSE  ${sHL}tCl${sRESET} (view clipboard contents)"
   echo "$fBODY  ${sHL}tCl [#-#]${sRESET} (replace clipboard with selection)"
-  echo "$fOPT  ${sHL}tCl -a [#-#]${sRESET} (append clipboard with selection)"
+  echo "$fOPT  ${sHL}tCl -${sRESET} (clear clipboard contents)"
+  echo "$fBODY  ${sHL}tCl -a [#-#]${sRESET} (append clipboard with selection)"
   echo "$fBODY  ${sHL}tCl -e${sRESET} (open clipboard for editing)"
   echo "$fBODY  ${sHL}tCl --shred${sRESET} (clear clipboard)"
   echo "$fEMPTY"
@@ -58,7 +59,7 @@ tCl_help(){
   echo "$fBODY  ${sHL}tPa -n${sRESET} (append clipboard to default note)"
   echo "$fBODY  ${sHL}tPa -n [target]${sRESET} (append clipboard to specified note)"
   echo "$fEMPTY"
-  echo "$fTIP When using the ${sBBLUE}replace${sRESET} (-r) option,"
+  echo "$fTIP When using the \"-r\" option,"
   echo "$fBODY  ${sBBLUE}tPaste${sRESET} will create a new file"
   echo "$fBODY  in the event that ${sBBLUE}target${sRESET} does not exist."
 }
@@ -111,7 +112,10 @@ tCl() {
     else
       rm "$cCL"
     fi
-  else
+  # elif [[ "$@" =~ ^[0-9-]+$ ]]; then
+  elif [[ "$@" =~ ^[0-9\ \-]+$ ]]; then
     tCl_copy "$@"
+  else
+    tA_invalid_argument
   fi
 }

@@ -97,9 +97,9 @@ tLi_view_entries() {
 # Link help info.
 tLi_help() {
   echo "$fEMPTY"
-  echo "$fMARK [${sBGREEN}tLink${sRESET}] Add, edit, delete, and view ${sBBLUE}unison${sRESET} aliases."
+  echo "$fMARK [${sBGREEN}tLink${sRESET}] Add, view, edit, and delete ${sBBLUE}unison${sRESET} aliases."
   echo "$fUSE  ${sHL}tLi${sRESET} (view all aliases)"
-  echo "$fOPT  ${sHL}tLi -a [target1] [target2]${sRESET} (add new alias)"
+  echo "$fOPT  ${sHL}tLi -a \"[target1]\" \"[target2]\"${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tLi -v [target]${sRESET} (view contents of target alias)"
   echo "$fBODY  ${sHL}tLi -e [target]${sRESET} (open target alias for editing)"
   echo "$fBODY  ${sHL}tLi -d [target]${sRESET} (delete target alias)"
@@ -111,9 +111,9 @@ tLi_help() {
   echo "$fEMPTY"
   echo "$fTIP When adding new ${sBGREEN}tLinks${sRESET},"
   echo "$fBODY  remote targets should be written in the format:"
-  echo "$fBODY  ${sHL}ssh://hostname//path/to/target/${sRESET}"
+  echo "$fBODY  \"ssh://hostname//path/to/target/\""
   echo "$fEMPTY"
-  echo "$fEXMPL ${sHL}tLi -a ssh://workPC//home/tastyUser/Documents ~/Documents${sRESET}"
+  echo "$fEXMPL ${sHL}tLi -a \"ssh://workPC//home/tastyUser/Documents\" \"~/Documents\"${sRESET}"
   echo "$fEMPTY"
   echo "$fWARNG You must use the ${sBGREEN}tLink${sRESET} for the sync to occur--"
   echo "$fBODY  this is not an automatic sync tool."

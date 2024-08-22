@@ -140,7 +140,7 @@ tRv_help() {
   echo "$fUSE  ${sHL}tSr \"[search phrase]\"${sRESET}"
   echo "$fEMPTY"
   echo "$fMARK [${sBCYAN}tFilter${sRESET}] Filter results of piped command via keyword/line number."
-  echo "$fUSE  ${sHL}tF -[option] \"[keyword or number range (#-#)]\"${sRESET}"
+  echo "$fUSE  ${sHL}tF -[option] [keyword or number range (#-#)]${sRESET}"
   echo "$fOPT  ${sHL}tF -k${sRESET} (filter by keyword/phrase)"
   echo "$fBODY  ${sHL}tF -l${sRESET} (filter by line number)"
   echo "$fEMPTY"
@@ -150,7 +150,7 @@ tRv_help() {
   echo "$fEMPTY"
   echo "$fEXMPL ${sHL}tV work.note | tF -k \"meeting\"${sRESET}"
   echo "$fEMPTY"
-  echo "$fEXMPL ${sHL}tV work.note | tF -l \"4-20\"${sRESET}"
+  echo "$fEXMPL ${sHL}tV work.note | tF -l 4-20${sRESET}"
   echo "$fEMPTY"
   echo "$fMARK [${sBCYAN}tNav${sRESET}] Navigate your file system."
   echo "$fUSE  ${sHL}tN${sRESET} (navigate to home directory)"
@@ -163,7 +163,7 @@ tRv_help() {
   echo "$fMARK [${sBCYAN}tBack${sRESET}] Move back to previous working directory."
   echo "$fUSE  ${sHL}tB${sRESET}"
   echo "$fEMPTY"
-  echo "$fMARK [${sBCYAN}tFresh${sRESET}] Quickly source your ${sHL}~/.bashrc${sRESET} file."
+  echo "$fMARK [${sBCYAN}tFresh${sRESET}] Quickly source your \"~/.bashrc\" file."
   echo "$fUSE  ${sHL}tFs${sRESET}"
   echo "$fEMPTY"
   echo "$fTIP Use this shortcut after making changes to your ${sBBLUE}tBook${sRESET}"
@@ -209,9 +209,7 @@ tB() {
 
 # tNav callable function.
 tN() {
-  if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
-    tN_help
-  elif [ -z "$1" ]; then
+  if [ -z "$1" ]; then
     tN "$HOME"
   elif [ ! -d "$1" ]; then
     tA_invalid_argument

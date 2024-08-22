@@ -98,9 +98,9 @@ tI_view_entries() {
 # Ticket help info.
 tI_help() {
   echo "$fEMPTY"
-  echo "$fMARK [${sBPINK}tIcket${sRESET}] Add, edit, delete, and view ${sBBLUE}cd${sRESET} aliases."
+  echo "$fMARK [${sBPINK}tIcket${sRESET}] Add, view, edit, and delete ${sBBLUE}cd${sRESET} aliases."
   echo "$fUSE  ${sHL}tI${sRESET} (view all aliases)"
-  echo "$fOPT  ${sHL}tI -a [path/to/target]${sRESET} (add new alias)"
+  echo "$fOPT  ${sHL}tI -a \"[target]\"${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tI -v [target]${sRESET} (view contents of target alias)"
   echo "$fBODY  ${sHL}tI -e [target]${sRESET} (open target alias for editing)"
   echo "$fBODY  ${sHL}tI -d [target]${sRESET} (delete target alias)"
@@ -110,7 +110,7 @@ tI_help() {
   echo "$fBODY  used to quickly travel to frequented"
   echo "$fBODY  locations within your local file system."
   echo "$fEMPTY"
-  echo "$fEXMPL ${sHL}tI -a ~/Documents/Work/Project/Notes/${sRESET}"
+  echo "$fEXMPL ${sHL}tI -a \"~/Documents/Work/Project/Notes/\"${sRESET}"
 }
 
 

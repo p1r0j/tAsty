@@ -103,6 +103,11 @@ tBo_help() {
   echo "$fTIP See help info for"
   echo "$fBODY  ${sBPINK}tIcket${sRESET}, ${sBGREEN}tLink${sRESET}, and ${sBYELLOW}tCraft${sRESET}"
   echo "$fBODY  for how to add entries to your ${sBBLUE}tBook${sRESET}."
+  echo "$fEMPTY"
+  echo "$fTIP Be sure to use the ${sBBLUE}tFs${sRESET} command"
+  echo "$fBODY  after adding a new entry to your ${sBBLUE}tBook${sRESET}."
+  echo "$fBODY  Otherwise, your new entry will not function"
+  echo "$fBODY  until your ${sBBLUE}bash${sRESET} session has been restarted."
 }
 
 

@@ -94,7 +94,7 @@ tCr_view_entries() {
 # Craft help info.
 tCr_help() {
   echo "$fEMPTY"
-  echo "$fMARK [${sBYELLOW}tCraft${sRESET}] Add, edit, delete, and view custom aliases."
+  echo "$fMARK [${sBYELLOW}tCraft${sRESET}] Add, view, edit, and delete custom aliases."
   echo "$fUSE  ${sHL}tCr${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tCr -a \"[command]\"${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tCr -v [target]${sRESET} (view contents of target alias)"
@@ -104,7 +104,7 @@ tCr_help() {
   echo "$fEMPTY"
   echo "$fTIP ${sBYELLOW}tCraft${sRESET} allows you to create an alias from any command,"
   echo "$fBODY  extending ${sBCYAN}tAsty${sRESET}'s functionality"
-  echo "$fBODY  in whatever direction you choose to take it."
+  echo "$fBODY  in whatever way you see fit."
   echo "$fEMPTY"
   echo "$fEXMPL ${sHL}tCr -a \"sudo apt update && sudo apt upgrade\"${sRESET}"
 }

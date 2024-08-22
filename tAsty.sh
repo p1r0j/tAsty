@@ -4,8 +4,6 @@
 # for The Alias Supplement ThingY,
 # tAsty.
 
-# Joke.
-poked=0
 # Locator.
 lDir="$( cd -- "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 ; pwd -P )"
 # Main script.
@@ -70,6 +68,10 @@ fBODY1=" |${sPINK}|  ${sRESET}|"
 fBODY2=" |${sGREEN} | ${sRESET}|"
 fBODY3=" |${sYELLOW}  |${sRESET}|"
 fEMPTY=" |   |"
+# Version.
+tVer="1.0"
+# Joke.
+poked=0
 # Aliases.
 alias tAsty="tA"
 # Enable tPrompt.
@@ -147,7 +149,7 @@ tA_donate() {
 # tAsty help info.
 tA_help() {
   echo "$fEMPTY"
-  echo "$fMARK [${sBCYAN}tAsty${sRESET}] An extension for your ${sHL}~/.bashrc${sRESET} file."
+  echo "$fMARK [${sBCYAN}tAsty${sRESET}] An extension for your \"~/.bashrc\" file."
   echo "$fOPT  ${sHL}tA -d${sRESET} (open donations link)"
   echo "$fEMPTY"
   echo "$fMARK ${sBCYAN}tAsty${sRESET} consists of the following modules:"
@@ -156,7 +158,7 @@ tA_help() {
   echo "$fBODY  and ${sBBLUE}tNote${sRESET}."
   echo "$fEMPTY"
   echo "$fTIP Learn more about each of ${sBCYAN}tAsty${sRESET}'s modules"
-  echo "$fBODY  with the ${sHL}-h${sRESET} option."
+  echo "$fBODY  with the \"-h\" option."
 }
 
 
@@ -183,6 +185,9 @@ tA() {
     tA_help
   elif [ "$1" = "--donate" ] || [ "$1" = "-d" ]; then
     tA_donate
+  elif [ "$1" = "--version" ]; then
+    echo "$fEMPTY"
+    echo "$fMARK [${sBCYAN}v$tVer${sRESET}]"
   elif [ -z "$1" ]; then
     if [ "$poked" = 3 ]; then
       echo "$fEMPTY"
