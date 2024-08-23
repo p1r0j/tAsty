@@ -2,19 +2,75 @@
 
 *The Alias Supplement ThingY*
 
-**tAsty** is an extension for your ~/.bashrc file aimed at simplifying commonly performed tasks within the **bash** shell. With a focus on productivity and file management, some of **tAsty**'s key features include:
+**tAsty** is an extension for your ~/.bashrc file aimed at simplifying commonly performed tasks within the **bash** shell. With a focus on productivity and file management, **tAsty** aims to fully replace the need for a stand-alone file manager (see **tSelect** in the ***tRaveller*** section below for what is likely the clearest example of this notion), while giving advanced users the power to extend its functionality even further (see **tCraft** below).
+
+In order to achieve this aim, **tAsty** consists of several modules, each of which provide a distinct portion of its functionality. While its modules can be viewed as separate pieces, they do often interact with one another. For example, **tSelect** is a component of the ***tFile*** module, yet it is a crucial part of how the user interacts with other modules such as ***tPocket***, ***tRash***, and ***tClip***.
+
+For more information on each of **tAsty**'s modules, see their respective sections just below. For installation help, skip to the bottom to find the ***Installation*** section. If you find this project useful or simply wish to support its author, you can donate to me directly [here](https://buymeacoffee.com/piroj).
 
 ### tBook
 
 ![Screen recording of tBook command's output.](Images/tBook.gif)
 
-A place to store custom **bash** aliases. Simply run the command `tBo` to view all your current aliases. **tBook** consists of three distinct components:
+View, edit, and delete custom aliases using **tIcket**, **tLink**, and **tCraft**.
 
-*   ***tIcket***. Used to add, view, and remove **cd** aliases. Useful for bookmarking frequented directories.
+`tBo` (view all aliases)
 
-*   ***tLink***. Used to add, view, and remove **unison** aliases. Useful for synching local and remote directories.
+`tBo -v [target]` (view contents of target alias)
 
-*   ***tCraft***. Used to add, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
+`tBo -e [target]` (open target alias for editing)
+
+`tBo -d [target]` (delete target alias)
+
+`tBo --shred` (delete all aliases)
+
+#### tIcket
+
+Add, view, and delete **cd** aliases. These can be used like bookmarks to quickly travel to frequented locations within your file system.
+
+`tI` (view all aliases)
+
+`tI -a "[target]"` (add new alias)
+
+`tI -v [target]` (view contents of target alias)
+
+`tI -e [target]` (open target alias for editing)
+
+`tI -d [target]` (delete target alias)
+
+`tI --shred` (delete all aliases)
+
+#### tLink
+
+Add, view, edit, and delete **unison** aliases. **Unison** syncs two targets bidirectionally, making it especially useful for linking a remote directory with a local one.
+
+`tLi` (view all aliases)
+
+`tLi -a "[target1]" "[target2]"` (add new alias)
+
+`tLi -v [target]` (view contents of target alias)
+
+`tLi -e [target]` (open target alias for editing)
+
+`tLi -d [target]` (delete target alias)
+
+`tLi --shred` (delete all aliases)
+
+#### tCraft
+
+Add, view, edit, and delete custom aliases. **tCraft** allows you to create an alias from any command, extending **tAsty**'s functionality in whatever way you see fit.
+
+`tCr` (view all aliases)
+
+`tCr -a "[command]"` (add new alias)
+
+`tCr -v [target]` (view contents of target alias)
+
+`tCr -e [target]` (open target alias for editing)
+
+`tCr -d [target]` (delete target alias)
+
+`tCr --shred` (delete all aliases)
 
 ### tRaveller
 
