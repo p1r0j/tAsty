@@ -64,7 +64,7 @@ Convenient note-taking in **bash**. Opens for editing in your preferred command 
 
 3.  `./tAsty.sh --setup`
 
-4.  Follow the instructions printed to your terminal. From here, you will simply copy/paste the line that **tAsty setup** provided (i.e. `source /home/tastyUser/Git/tAsty/tAsty.sh`) to the bottom (or some other empty area) of your ~/.bashrc file.
+4.  Follow the instructions printed to your terminal. From here, you will simply copy/paste the line that **tAsty setup** provided (e.g. `source /home/tastyUser/Git/tAsty/tAsty.sh`) to the bottom (or some other empty area) of your ~/.bashrc file.
 
 5.  Finally, run the command `source ~/.bashrc`. Your command prompt should change, signifying a successful installation.
 
