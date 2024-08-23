@@ -54,11 +54,23 @@ Add, view, edit, and delete **unison** aliases. **Unison** syncs two targets bid
 
 `tLi -d [target]` (delete target alias)
 
-`tI --shred` (delete all aliases)
+`tLi --shred` (delete all aliases)
 
 #### tCraft
 
-Used to add, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
+Add, view, edit, and delete custom aliases. **tCraft** allows you to create an alias from any command, extending **tAsty**'s functionality in whatever way you see fit.
+
+`tCr` (view all aliases)
+
+`tCr -a "[command]"` (add new alias)
+
+`tCr -v [target]` (view contents of target alias)
+
+`tCr -e [target]` (open target alias for editing)
+
+`tCr -d [target]` (delete target alias)
+
+`tCr --shred` (delete all aliases)
 
 ### tRaveller
 
