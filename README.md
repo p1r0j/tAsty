@@ -50,7 +50,7 @@ Bring trash can functionality to your **bash** shell. **tRash** works just like 
 
 ![Screen recording of tNote command's output.](Images/tNote.gif)
 
-Convenient note-taking in **bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, often found in your `~/.bashrc` file). A single command to view and manage all your notes, all in one place.
+Convenient note-taking in **bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, often found in your ~/.bashrc file). A single command to view and manage all your notes, all in one place.
 
 ## Installation
 
@@ -64,7 +64,7 @@ Convenient note-taking in **bash**. Opens for editing in your preferred command 
 
 3.  `./tAsty.sh --setup`
 
-4.  Follow the instructions printed to your terminal. From here, you will simply copy/paste the line that **tAsty setup** provided (i.e. `source /home/tastyUser/Git/tAsty/tAsty.sh`) to the bottom (or some other empty area) of your `~/.bashrc` file.
+4.  Follow the instructions printed to your terminal. From here, you will simply copy/paste the line that **tAsty setup** provided (i.e. `source /home/tastyUser/Git/tAsty/tAsty.sh`) to the bottom (or some other empty area) of your ~/.bashrc file.
 
 5.  Finally, run the command `source ~/.bashrc`. Your command prompt should change, signifying a successful installation.
 
