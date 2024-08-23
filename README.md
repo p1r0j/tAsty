@@ -42,6 +42,8 @@ Bring trash can functionality to your **bash** shell. **tRash** works just like 
 
 ### tClip
 
+![Screen recording of tClip command's output.](Images/tClip.gif)
+
 **tAsty** also includes its own clipboard. Use **tClip** to quickly copy and append the contents of files viewed with **tView** (see ***tRaveller*** above). Additionally, clear the contents, paste to **tNote** (see ***tNote*** next), or open up your **tClip** for editing with a single command.
 
 ### tNote
