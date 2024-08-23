@@ -42,7 +42,7 @@ tP() {
     if [ -z "$2" ]; then
       tA_too_few_arguments
     elif [ -d "$2" ]; then
-      cp -rf "$eP/"* "$2"
+      cp -rf "$eP"/. "$2"
     else
       tA_invalid_argument
     fi
