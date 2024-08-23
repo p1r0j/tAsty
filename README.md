@@ -26,7 +26,7 @@ A collection of shell navigation tools. **tRaveller** includes tools such as **t
 
 ![Screen recording of tSelect command's output.](Images/tSelect.gif)
 
-A collection of command line file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. Similarly, **tRename** is a bulk rename tool. **tFile** also includes productivity essentials such as **tWrite**, **tLock**, **tSave**, and much more.
+A collection of command line file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. **tFile** also includes productivity essentials such as **tWrite**, **tLock**, **tSave**, and much more.
 
 ### tRash
 
