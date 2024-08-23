@@ -24,7 +24,7 @@ View, edit, and delete custom aliases using **tIcket**, **tLink**, and **tCraft*
 
 `tBo --shred` (delete all aliases)
 
-*   ***tIcket***. Add, view, and delete **cd** aliases. These can be used like bookmarks to quickly travel to frequented locations within your file system.
+[***tIcket***] Add, view, and delete **cd** aliases. These can be used like bookmarks to quickly travel to frequented locations within your file system.
 
 `tI` (view all aliases)
 
@@ -38,7 +38,7 @@ View, edit, and delete custom aliases using **tIcket**, **tLink**, and **tCraft*
 
 `tI --shred` (delete all aliases)
 
-*   ***tLink***. Add, view, edit, and delete **unison** aliases. **Unison** syncs two targets bidirectionally, making it especially useful for linking a remote directory with a local one.
+[***tLink***] Add, view, edit, and delete **unison** aliases. **Unison** syncs two targets bidirectionally, making it especially useful for linking a remote directory with a local one.
 
 `tLi` (view all aliases)
 
@@ -52,7 +52,7 @@ View, edit, and delete custom aliases using **tIcket**, **tLink**, and **tCraft*
 
 `tI --shred` (delete all aliases)
 
-*   ***tCraft***. Used to add, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
+[***tCraft***] Used to add, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
 
 ### tRaveller
 
