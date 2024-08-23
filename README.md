@@ -14,6 +14,8 @@
 
     *   ***tCraft***. Used to add, view, and remove custom **bash** aliases. Useful for simplifying any task in **bash** not covered by **tAsty**'s other components.
 
+![Screen recording of tView command's output.](Images/tView.gif)
+
 *   ***tRaveller***. A collection of shell navigation tools. **tRaveller** includes tools such as **tView** for intelligently viewing the contents of files and directories, **tSearch** for searching your current working directory for files containing a specified string, **tFilter** for filtering the output of any **bash** command by keyword or line number, and more.
 
 * ***tFile***. A collection of command line file management tools. For example, **tSelect** allows management of multiple files/directories simultaneously. Similarly, **tRename** is a bulk rename tool. **tFile** also includes productivity essentials such as **tWrite**, **tLock**, **tSave**, and much more.
