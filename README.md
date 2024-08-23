@@ -36,6 +36,8 @@ Bring trash can functionality to your **bash** shell. **tRash** works just like 
 
 ### tPocket
 
+![Screen recording of tPocket command's output.](Images/tPocket.gif)
+
 **tPocket** is a convenient place to store commonly used files/directories. You can copy targets into your **tPocket** for later use, and then paste its contents into a target destination. **tPocket** can also be saved, loaded, or its contents shredded with a single command.
 
 ### tClip
