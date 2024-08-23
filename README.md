@@ -30,6 +30,8 @@ A collection of command line file management tools. For example, **tSelect** all
 
 ### tRash
 
+![Screen recording of tRash command's output.](Images/tRash.gif)
+
 Bring trash can functionality to your **bash** shell. **tRash** works just like your desktop's trash can, with the ability to shred or restore its contents with a single command.
 
 ### tPocket
