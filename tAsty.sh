@@ -46,7 +46,7 @@ sBOLD=$(tput bold)
 sRESET=$(tput sgr0)
 # Faces.
 fINPUT="(${sBPINK}~[ ]~${sRESET})"
-fNEUTRAL="[${sBCYAN}~'_'~${sRESET}]" # wHiskey
+fNEUTRAL="[${sBCYAN}~'_'~${sRESET}]"
 fMARK="[${sBCYAN}~>>>~${sRESET}]"
 fHAPPY="[${sBCYAN}~'w'~${sRESET}]"
 fSIGH="[${sBCYAN}~-.-~${sRESET}]"
@@ -69,7 +69,7 @@ fBODY2=" |${sGREEN} | ${sRESET}|"
 fBODY3=" |${sYELLOW}  |${sRESET}|"
 fEMPTY=" |   |"
 # Version.
-tVer="1.0"
+tVer="1.1"
 # Joke.
 poked=0
 # Aliases.
@@ -174,7 +174,7 @@ tPrompt() {
   done
   tPrompt="(\[${sBPINK}\]~[ ]~\[${sRESET}\]) "
   echo "$pDivider"
-  echo "$fNEUTRAL ${sBCYAN}$pName${sRESET}@${sBGREEN}$(hostname)${sRESET}:${sHL}$pDir${sRESET}" # wHiskey
+  echo "$fNEUTRAL ${sBCYAN}$pName${sRESET}@${sBGREEN}$(hostname)${sRESET}:${sHL}$pDir${sRESET}"
   echo " |${fTITLE}   ${sRESET}|  "
   PS1="$tPrompt"
 }
@@ -204,7 +204,7 @@ tA() {
     elif [ "$poked" = 0 ]; then
       ((poked++))
       echo "$fEMPTY"
-      echo "$fNEUTRAL Can I help you?" # wHiskey
+      echo "$fNEUTRAL Can I help you?"
     fi
   else
     tA_invalid_argument
