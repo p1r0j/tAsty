@@ -69,7 +69,7 @@ fBODY2=" |${sGREEN} | ${sRESET}|"
 fBODY3=" |${sYELLOW}  |${sRESET}|"
 fEMPTY=" |   |"
 # Version.
-tVer="1.1"
+tVer="1.2"
 # Joke.
 poked=0
 # Aliases.
@@ -151,6 +151,11 @@ tA_help() {
   echo "$fEMPTY"
   echo "$fMARK [${sBCYAN}tAsty${sRESET}] An extension for your \"~/.bashrc\" file."
   echo "$fOPT  ${sHL}tA -d${sRESET} (open donations link)"
+  echo "$fBODY  ${sHL}tA --neutral${sRESET} (change to neutral face)"
+  echo "$fBODY  ${sHL}tA --happy${sRESET} (change to happy face)"
+  echo "$fBODY  ${sHL}tA --sad${sRESET} (change to sad face)"
+  echo "$fBODY  ${sHL}tA --inquisitive${sRESET} (change to inquisitive face)"
+  echo "$fBODY  ${sHL}tA --angry${sRESET} (change to angry face)"
   echo "$fBODY  ${sHL}tA --version${sRESET} (view version number)"
   echo "$fEMPTY"
   echo "$fMARK ${sBCYAN}tAsty${sRESET} consists of the following modules:"
@@ -189,6 +194,16 @@ tA() {
   elif [ "$1" = "--version" ]; then
     echo "$fEMPTY"
     echo "$fMARK [${sBCYAN}v$tVer${sRESET}]"
+  elif [ "$1" = "--neutral" ]; then
+    fNEUTRAL="[${sBCYAN}~'_'~${sRESET}]"
+  elif [ "$1" = "--happy" ]; then
+    fNEUTRAL="[${sBCYAN}~'w'~${sRESET}]"
+  elif [ "$1" = "--sad" ]; then
+    fNEUTRAL="[${sBCYAN}~;_;~${sRESET}]"
+  elif [ "$1" = "--inquisitive" ]; then
+    fNEUTRAL="[${sBCYAN}~p_-~${sRESET}]"
+  elif [ "$1" = "--angry" ]; then
+    fNEUTRAL="[${sBCYAN}~>_<~${sRESET}]"
   elif [ -z "$1" ]; then
     if [ "$poked" = 3 ]; then
       echo "$fEMPTY"
