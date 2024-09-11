@@ -69,7 +69,7 @@ fBODY2=" |${sGREEN} | ${sRESET}|"
 fBODY3=" |${sYELLOW}  |${sRESET}|"
 fEMPTY=" |   |"
 # Version.
-tVer="1.2"
+tVer="1.3"
 # Joke.
 poked=0
 # Aliases.
