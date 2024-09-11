@@ -98,7 +98,7 @@ tCr_help() {
   echo "$fUSE  ${sHL}tCr${sRESET} (view all aliases)"
   echo "$fOPT  ${sHL}tCr -a \"[command]\"${sRESET} (add new alias)"
   echo "$fBODY  ${sHL}tCr -v [target]${sRESET} (view contents of target alias)"
-  echo "$fBODY  ${sHL}tLi -e [target]${sRESET} (open target alias for editing)"
+  echo "$fBODY  ${sHL}tCr -e [target]${sRESET} (open target alias for editing)"
   echo "$fBODY  ${sHL}tCr -d [target]${sRESET} (delete target alias)"
   echo "$fBODY  ${sHL}tCr --shred${sRESET} (delete all aliases)"
   echo "$fEMPTY"
