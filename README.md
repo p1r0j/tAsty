@@ -4,8 +4,6 @@
 
 **tAsty** is an extension for your ~/.bashrc file aimed at simplifying commonly performed tasks within the **bash** shell. With a focus on productivity and file management, **tAsty** aims to fully replace the need for a stand-alone file manager (see **tSelect** in the ***tRaveller*** section below for what is likely the clearest example of this notion), while giving advanced users the power to extend its functionality even further (see **tCraft** below).
 
-In order to achieve this aim, **tAsty** consists of several modules, each of which provide a distinct portion of its functionality. While its modules can be viewed as separate pieces, they do often interact with one another. For example, **tSelect** is a component of the ***tFile*** module, yet it is a crucial part of how the user interacts with other modules such as ***tPocket***, ***tRash***, and ***tClip***.
-
 For more information on each of **tAsty**'s modules, see their respective sections just below. For installation help, skip to the bottom to find the ***Installation*** section. If you find this project useful or simply wish to support its author, you can donate to me directly [here](https://buymeacoffee.com/piroj).
 
 ### tBook
