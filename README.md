@@ -13,9 +13,13 @@ For more information on each of **tAsty**'s modules, see their respective sectio
 Make **Bash** easier to look at. Includes a divider between each command, as well as a playful face which can be adjusted to match your current mood.
 
 `tA --neutral` (change to neutral face)
+
 `tA --happy` (change to happy face)
+
 `tA --sad` (change to sad face)
+
 `tA --inquisitive` (change to inquisitive face)
+
 `tA --angry` (change to angry face)
 
 ### tBook
