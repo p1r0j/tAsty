@@ -2,7 +2,7 @@
 
 *The Alias Supplement ThingY*
 
-**tAsty** is an extension for your ~/.bashrc file aimed at simplifying commonly performed tasks within the **bash** shell. With a focus on productivity and file management, **tAsty** aims to fully replace the need for a stand-alone file manager (see **tSelect** in the ***tRaveller*** section below for what is likely the clearest example of this notion), while giving advanced users the power to extend its functionality even further (see **tCraft** below).
+**tAsty** is an extension for your ~/.bashrc file aimed at simplifying commonly performed tasks within the **Bash** shell. With a focus on productivity and file management, **tAsty** aims to fully replace the need for a stand-alone file manager (see **tSelect** in the ***tRaveller*** section below for what is likely the clearest example of this notion), while giving advanced users the power to extend its functionality even further (see **tCraft** below).
 
 For more information on each of **tAsty**'s modules, see their respective sections just below. For installation help, skip to the bottom to find the ***Installation*** section. If you find this project useful or simply wish to support its author, you can donate to me directly [here](https://buymeacoffee.com/piroj).
 
@@ -74,7 +74,7 @@ Add, view, edit, and delete custom aliases. **tCraft** allows you to create an a
 
 ![Screen recording of tView command's output.](Images/tView.gif)
 
-A collection of shell navigation tools. **tRaveller** includes tools such as **tView** for intelligently viewing the contents of files and directories, **tSearch** for searching your current working directory for files containing a specified string, **tFilter** for filtering the output of any **bash** command by keyword or line number, and more.
+A collection of shell navigation tools. **tRaveller** includes tools such as **tView** for intelligently viewing the contents of files and directories, **tSearch** for searching your current working directory for files containing a specified string, **tFilter** for filtering the output of any **Bash** command by keyword or line number, and more.
 
 ### tFile
 
@@ -86,7 +86,7 @@ A collection of command line file management tools. For example, **tSelect** all
 
 ![Screen recording of tRash command's output.](Images/tRash.gif)
 
-Bring trash can functionality to your **bash** shell. **tRash** works just like your desktop's trash can, with the ability to shred or restore its contents with a single command.
+Bring trash can functionality to your **Bash** shell. **tRash** works just like your desktop's trash can, with the ability to shred or restore its contents with a single command.
 
 ### tPocket
 
@@ -104,11 +104,11 @@ Bring trash can functionality to your **bash** shell. **tRash** works just like 
 
 ![Screen recording of tNote command's output.](Images/tNote.gif)
 
-Convenient note-taking in **bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, often found in your ~/.bashrc file). A single command to view and manage all your notes, all in one place.
+Convenient note-taking in **Bash**. Opens for editing in your preferred command line text editor (`EDITOR=[name]` where *name* is the name of your favorite editor, often found in your ~/.bashrc file). A single command to view and manage all your notes, all in one place.
 
 ## Installation
 
-1.  In your **bash** shell, navigate to the directory you'd like to store **tAsty** in.
+1.  In your **Bash** shell, navigate to the directory you'd like to store **tAsty** in.
 
     *   Be sure to choose a *permanent* location, as moving the following download after installation will break **tAsty**.
 
