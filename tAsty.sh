@@ -180,7 +180,7 @@ tPrompt() {
   tPrompt="(\[${sBPINK}\]~[ ]~\[${sRESET}\]) "
   echo "$pDivider"
   echo "$fNEUTRAL ${sBCYAN}$pName${sRESET}@${sBGREEN}$(hostname)${sRESET}:${sHL}$pDir${sRESET}"
-  echo " |${fTITLE}   ${sRESET}|  "
+  echo " |   |  "
   PS1="$tPrompt"
 }
 
