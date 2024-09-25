@@ -6,6 +6,18 @@
 
 For more information on each of **tAsty**'s modules, see their respective sections just below. For installation help, skip to the bottom to find the ***Installation*** section. If you find this project useful or simply wish to support its author, you can donate [here](https://buymeacoffee.com/piroj).
 
+### tPrompt
+
+![Screen recording of tPrompt options.](Images/tPrompt.gif)
+
+Make **Bash** easier to look at. Includes a divider between each command, as well as a playful face which can be adjusted to match your current mood.
+
+`tA --neutral` (change to neutral face)
+`tA --happy` (change to happy face)
+`tA --sad` (change to sad face)
+`tA --inquisitive` (change to inquisitive face)
+`tA --angry` (change to angry face)
+
 ### tBook
 
 ![Screen recording of tBook command's output.](Images/tBook.gif)
