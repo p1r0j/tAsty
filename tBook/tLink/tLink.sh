@@ -41,7 +41,7 @@ tLi_add_entry() {
   if tBo_validate_name "$linkName"; then
     linkName="t$linkName"
     touch "$edLI/$linkName"
-    newLink="alias $linkName=\"unison \"$2\" \"$3\" -force \"$2\" -auto -batch\""
+    newLink="alias $linkName=\"unison \"$2\" \"$3\" -auto -batch -prefer newer -fastcheck true\""
     echo "$newLink" > "$edLI/$linkName"
   fi
 }
