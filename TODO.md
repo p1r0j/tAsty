@@ -4,8 +4,6 @@ The Alias Supplement ThingY
 
 ## To Do
 
-- [ ] Fix tSave trailing forward slash issue.
-
 ## Completed
 
 - [x] Add error handling to tSelect for too few arguments.
@@ -13,3 +11,5 @@ The Alias Supplement ThingY
 - [x] Add tNote.
 
 - [x] Add screenshots to README.
+
+- [x] Fix tSave trailing forward slash issue.

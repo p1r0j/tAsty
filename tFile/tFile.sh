@@ -318,27 +318,30 @@ tLc() {
 
 # tLoad callable function.
 tL() {
-  if [ -z "$1" ]; then
+  local target=${1%/}
+  local destination=${2%/}
+  if [ -z "$target" ]; then
     tA_too_few_arguments
-  elif [ -f "$1.save" ] || [ -d "$1.save" ]; then
-    if [ -z "$2" ]; then
-      if [ -d "$1.save" ]; then
-        rsync -ar --delete "$1.save/" "$1/"
-      elif [ -f "$1.save" ]; then
-        rsync -a --delete "$1.save" "$1"
+  elif [ -f "$target.save" ] || [ -d "$target.save" ]; then
+    if [ -z "$destination" ]; then
+      if [ -d "$target.save" ]; then
+        rsync -ar --delete "$target.save/" "$target/"
+      elif [ -f "$target.save" ]; then
+        rsync -a --delete "$target.save" "$target"
       else
         tA_invalid_argument
       fi
     else
-      if [ -d "$1.save" ]; then
-        rsync -ar --delete "$1.save/" "$2/"
-      elif [ -f "$1.save" ]; then
-        rsync -a --delete "$1.save" "$2"
+      if [ -d "$target.save" ]; then
+        rsync -ar --delete "$target.save/" "$destination/"
+      elif [ -f "$target.save" ]; then
+        rsync -a --delete "$target.save" "$destination"
       else
         tA_invalid_argument
       fi
     fi
   else
+    echo "TEST"
     tA_invalid_argument
   fi
 }
@@ -346,22 +349,24 @@ tL() {
 
 # tSave callable function.
 tSv() {
-  if [ -z "$1" ]; then
+  local target=${1%/}
+  local destination=${2%/}
+  if [ -z "$target" ]; then
     tA_too_few_arguments
-  elif [ -f "$1" ] || [ -d "$1" ]; then
-    if [ -z "$2" ]; then
-      if [ -d "$1" ]; then
-        rsync -ar --delete "$1/" "$1.save/"
-      elif [ -f "$1" ]; then
-        rsync -a --delete "$1" "$1.save"
+  elif [ -f "$target" ] || [ -d "$target" ]; then
+    if [ -z "$destination" ]; then
+      if [ -d "$target" ]; then
+        rsync -ar --delete "$target/" "$target.save/"
+      elif [ -f "$target" ]; then
+        rsync -a --delete "$target" "$target.save"
       else
         tA_invalid_argument
       fi
     else
-      if [ -d "$1" ]; then
-        rsync -ar --delete "$1/" "$2.save/"
-      elif [ -f "$1" ]; then
-        rsync -a --delete "$1" "$2.save"
+      if [ -d "$target" ]; then
+        rsync -ar --delete "$target/" "$destination.save/"
+      elif [ -f "$target" ]; then
+        rsync -a --delete "$target" "$destination.save"
       else
         tA_invalid_argument
       fi
